@@ -1,113 +1,40 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<nav>
-			<a href="#"></a>
-			<a href="#">󰂺</a>
-			<a href="#"></a>
-		</nav>
-		<form action="service.js" id="search">
-			<div id="search-container">
-				<label for="search-box"></label>
-				<input id="search-box" type="text" />
-			</div>
-			<div id="search-filter">
-				<input type="button" value="libro" />
-				<input type="button" value="categoria" />
-				<input type="button" value="editorial" />
-				<input type="button" value="autor" />
-			</div>
-		</form>
-	</main>
+<Layout title="login">
+    <form action="login.js" method="post">
+        <label for="ResumeName">Usuario</label>
+        <input type="text" name="ResumeName" id="resumeN" />
+        <label for="Register">Matrícula</label>
+        <input type="text" name="Register" id="res" />
+    </form>
 </Layout>
 
 <style>
-	/* max-width: calc(100% - 2rem);*/
+    @media (width <= 1000px) {
+        form {
+            width: 80%;
+        }
+    }
 
-	@media (width <= 1000px) {
-		form {
-			width: 80%;
-		}
-	}
-
-	@media (width > 1000px) {
-		form {
-			width: 40%;
-		}
-	}
-	main {
-		display: block;
-		margin: 0;
-		padding: 0;
-		color: #caebf7;
-		font-size: 20px;
-		line-height: 1.6;
-		height: 100vh;
-		background: linear-gradient(#0c527e, #171f30);
-	}
-	nav {
-		padding: 0 2rem;
-		display: flex;
-		justify-content: space-between;
-		background-color: #00b3e4;
-	}
-
-	a {
-		color: #003a5d;
-		font-size: 2rem;
-		text-decoration: none;
-	}
-
-	form {
-		position: relative;
-		margin: calc(100vh / 2 - 12rem) auto;
-	}
-	#search-container {
-		display: flex;
-		justify-content: space-between;
-		background-color: #00b3e4;
-		border-radius: 2rem;
-		padding: 0.2rem 0.2rem 0.2rem 1rem;
-		gap: 1rem;
-		height: 2rem;
-		box-shadow: 0.2rem 0.2rem 1rem #0005;
-	}
-
-	input {
-		border-radius: 2rem;
-		border-style: none;
-	}
-	label {
-		font-size: 2rem;
-	}
-
-	#search-container label {
-		line-height: 1;
-	}
-
-	#search-container input {
-		flex-grow: 1;
-	}
-
-	#search-filter {
-		margin: 1rem 0.4rem;
-		display: flex;
-		justify-content: space-around;
-		flex-wrap: wrap;
-		row-gap: 0.4rem;
-		gap: 0.4rem;
-	}
-	#search-filter input {
-		background-color: #00b3e4;
-		width: 6rem;
-		color: #fff;
-		font-size: 0.9rem;
-		font-weight: bold;
-		padding: 0.2rem 1rem;
-		box-shadow: 0.2rem 0.2rem 1rem #0005;
-	}
+    @media (width > 1000px) {
+        form {
+            width: 30%;
+        }
+    }
+    form {
+        position: relative;
+        top: 25%;
+        margin: auto;
+        height: 25%;
+        padding: 4rem 1rem;
+        border-radius: 1rem;
+        display: flex;
+        background-color: #003a5d;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0.5rem 0.5rem 2rem #0004;
+    }
 </style>

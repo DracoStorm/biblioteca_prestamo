@@ -1,0 +1,21 @@
+---
+interface Props {
+    filter: string;
+}
+
+const { filter } = Astro.props;
+---
+
+<input type="button" value={filter} />
+
+<style>
+    input {
+        background-color: #00b3e4;
+        width: 6rem;
+        color: #fefefe;
+        font-size: 0.9rem;
+        font-weight: bold;
+        padding: 0.2rem 1rem;
+        box-shadow: 0.2rem 0.2rem 1rem #0005;
+    }
+</style>

@@ -1,0 +1,64 @@
+---
+
+---
+
+<form action="service.js" id="search">
+    <div id="search-container">
+        <label for="search-box"></label>
+        <input id="search-box" type="text" />
+    </div>
+    <div id="search-filter">
+        <slot />
+    </div>
+</form>
+
+<style>
+    @media (width <= 1000px) {
+        form {
+            width: 80%;
+        }
+    }
+
+    @media (width > 1000px) {
+        form {
+            width: 40%;
+        }
+    }
+
+    form {
+        position: relative;
+        margin: calc(100vh / 2 - 12rem) auto;
+    }
+
+    #search-container {
+        display: flex;
+        justify-content: space-between;
+        background-color: #00b3e4;
+        border-radius: 2rem;
+        padding: 0.2rem 0.2rem 0.2rem 1rem;
+        gap: 1rem;
+        height: 2rem;
+        box-shadow: 0.2rem 0.2rem 1rem #0005;
+    }
+
+    label {
+        font-size: 2rem;
+    }
+
+    #search-container label {
+        line-height: 1;
+    }
+
+    #search-container input {
+        flex-grow: 1;
+    }
+
+    #search-filter {
+        margin: 1rem 0.4rem;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        row-gap: 0.4rem;
+        gap: 0.4rem;
+    }
+</style>
