@@ -8,29 +8,39 @@ import BookItem from "../components/BookItem.astro";
 <Layout title="prestamo">
     <Nav />
     <SearchR>
-        <BookItem
-            icon=""
-            title="Inginieria Aeroespacial"
-            category="Ingenieria"
-            place="Central"
-            autor="Richard Wayland"
-            editorial="Ingenieros > Licenciados"
-        />
-        <BookItem
-            icon=""
-            title="El llamado de Cthulu"
-            category="Literatura Moderna"
-            place="Benito Juarez"
-            autor="Howard Philips Lovecraft"
-            editorial="Locura Onírica"
-        />
-        <BookItem
-            icon=""
-            title="Learning English: Two Ways"
-            category="Idiomas"
-            place="5 de Mayo"
-            autor="Elena Herrera"
-            editorial="Lingua House"
-        />
+        <div>
+            <span>2022-01-18</span>
+            <BookItem
+                icon=""
+                title="Inginieria Aeroespacial"
+                category="Ingenieria"
+                place="Central"
+                autor="Richard Wayland"
+                editorial="Ingenieros > Licenciados"
+            />
+        </div>
+
+        <div>
+            <span>2023-03-05</span>
+            <BookItem
+                icon=""
+                title="El llamado de Cthulu"
+                category="Literatura Moderna"
+                place="Benito Juarez"
+                autor="Howard Philips Lovecraft"
+                editorial="Locura Onírica"
+            />
+        </div>
+        <div>
+            <span>2024-07-22</span>
+            <BookItem
+                icon=""
+                title="Learning English: Two Ways"
+                category="Idiomas"
+                place="5 de Mayo"
+                autor="Elena Herrera"
+                editorial="Lingua House"
+            />
+        </div>
     </SearchR>
 </Layout>
