@@ -4,10 +4,16 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="login">
     <form action="login.js" method="post">
+        <div>
+            <h1>Bibliotecas BUAP</h1>
+            <h2>Iniciar Sesion</h2>
+        </div>
+
         <label for="ResumeName">Usuario</label>
         <input type="text" name="ResumeName" id="resumeN" />
         <label for="Register">Matrícula</label>
         <input type="text" name="Register" id="res" />
+        <input type="button" value="Iniciar Sesión" id="login" />
     </form>
 </Layout>
 
@@ -24,17 +30,34 @@ import Layout from "../layouts/Layout.astro";
         }
     }
     form {
-        position: relative;
-        top: 25%;
-        margin: auto;
-        height: 25%;
+        position: absolute;
+        top: 15%;
+        left: 30%;
+        width: 40%;
+        height: 50%;
         padding: 4rem 1rem;
         border-radius: 1rem;
         display: flex;
-        background-color: #003a5d;
+        background-color: #00b3e466;
         justify-content: space-around;
         flex-direction: column;
         align-items: center;
         box-shadow: 0.5rem 0.5rem 2rem #0004;
+    }
+
+    h1,
+    h2 {
+        text-align: center;
+    }
+
+    #login {
+        background-color: #00b3e4;
+        width: 9rem;
+        color: #fefefe;
+        font-size: 0.9rem;
+        font-weight: bold;
+        padding: 0.2rem 1rem;
+        box-shadow: 0.2rem 0.2rem 1rem #0005;
+        margin-top: 1rem;
     }
 </style>

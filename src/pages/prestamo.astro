@@ -1,25 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import NavAdmin from "../components/NavAdmin.astro";
-import Filter from "../components/Filter.astro";
-import Search from "../components/Search.astro";
+import Nav from "../components/NavUser.astro";
+import SearchR from "../components/SearchResult.astro";
 import BookItem from "../components/BookItem.astro";
-import SearchResult from "../components/SearchResult.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-    <NavAdmin />
-    <Search>
-        <Filter filter="Titulo" />
-        <Filter filter="Categoria" />
-        <Filter filter="Editorial" />
-        <Filter filter="Autor" />
-        <Filter filter="Lugar" />
-        <Filter filter="ID" />
-    </Search>
-    <SearchResult>
+<Layout title="prestamo">
+    <Nav />
+    <SearchR>
         <BookItem
-            icon="󰃉"
+            icon=""
             title="Inginieria Aeroespacial"
             category="Ingenieria"
             place="Central"
@@ -27,7 +17,7 @@ import SearchResult from "../components/SearchResult.astro";
             editorial="Ingenieros > Licenciados"
         />
         <BookItem
-            icon="󰃉"
+            icon=""
             title="El llamado de Cthulu"
             category="Literatura Moderna"
             place="Benito Juarez"
@@ -35,13 +25,12 @@ import SearchResult from "../components/SearchResult.astro";
             editorial="Locura Onírica"
         />
         <BookItem
-            icon="󰃉"
+            icon=""
             title="Learning English: Two Ways"
             category="Idiomas"
             place="5 de Mayo"
             autor="Elena Herrera"
             editorial="Lingua House"
         />
-    </SearchResult>
-    <footer>.</footer>
+    </SearchR>
 </Layout>

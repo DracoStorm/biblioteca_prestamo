@@ -1,0 +1,43 @@
+---
+interface Props {
+    name: string;
+    matricula: string;
+    email: string;
+}
+
+const { name, matricula, email } = Astro.props;
+---
+
+<div>
+    <a href="modstudent">󰃉</a>
+    <span id="name">{name}</span>
+    <span id="matricula">{matricula}</span>
+    <span>{email}</span>
+</div>
+
+<style>
+    div {
+        display: flex;
+        background-color: #0092bb;
+        text-align: center;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        height: 2rem;
+        line-height: 2;
+    }
+    span {
+        flex-grow: 1;
+    }
+    #matricula {
+        background-color: #1116;
+    }
+    a {
+        background-color: #111a;
+        border-radius: 0;
+        color: #fefefe;
+        font-size: 0.9rem;
+        font-weight: bold;
+        padding: 0.2rem 1rem;
+        text-decoration: none;
+    }
+</style>

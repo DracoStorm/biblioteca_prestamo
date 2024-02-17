@@ -1,0 +1,77 @@
+---
+interface Props {
+    icon: string;
+    title: string;
+    category: string;
+    place: string;
+    autor: string;
+    editorial: string;
+}
+
+const { icon, title, category, place, autor, editorial } = Astro.props;
+---
+
+<div id="main">
+    <a id="icon" href="modlibro">{icon}</a>
+    <div id="title">{title}</div>
+    <div id="autor">{autor}</div>
+    <div id="category">{category}</div>
+    <div id="editorial">{editorial}</div>
+    <div id="place">{place}</div>
+</div>
+<style>
+    #icon {
+        grid-area: icon;
+        margin: auto;
+        font-size: 4rem;
+        font-style: normal;
+        color: white;
+        text-decoration: none;
+    }
+    #title {
+        grid-area: title;
+        border-top-left-radius: 0.5rem;
+    }
+    #autor {
+        grid-area: autor;
+    }
+    #category {
+        grid-area: category;
+        border-bottom-left-radius: 0.5rem;
+    }
+    #editorial {
+        grid-area: editorial;
+    }
+    #place {
+        grid-area: place;
+    }
+    div > div {
+        display: flex;
+        align-items: center;
+        padding: 0.4rem;
+    }
+    #title,
+    #autor {
+        background-color: #1113;
+    }
+    #category,
+    #editorial,
+    #place {
+        background-color: #1116;
+    }
+    #main {
+        display: grid;
+        background-color: #00b3e4;
+        grid-template-columns: 6rem 1fr 2fr 2fr;
+        grid-template-rows: 3rem 4rem;
+        grid-template-areas: "icon title title autor" "icon category editorial place";
+        border-radius: 0.5rem;
+        overflow: hidden;
+        box-shadow: 0.2rem 0.2rem 1rem #0005;
+    }
+    @media screen (width <= 1000) {
+        #main {
+            grid-template-areas: "icon title" "autor autor" "category editorial" "place place";
+        }
+    }
+</style>

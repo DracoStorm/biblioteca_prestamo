@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/NavAdmin.astro";
+---
+
+<Layout title="modificar estudiante">
+    <Nav />
+    <form action="mod">
+        <h1>Modificando Estudiante</h1>
+        <label for="">Nombre</label>
+        <input type="text" />
+        <label for="">Matricula</label>
+        <input type="text" />
+    </form>
+</Layout>
+
+<style>
+    @media (width <= 1000px) {
+        form {
+            width: 80%;
+        }
+    }
+
+    @media (width > 1000px) {
+        form {
+            width: 30%;
+        }
+    }
+    form {
+        position: absolute;
+        top: 25%;
+        left: 30%;
+        width: 40%;
+        height: 40%;
+        padding: 4rem 1rem;
+        border-radius: 1rem;
+        display: flex;
+        background-color: #00b3e466;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0.5rem 0.5rem 2rem #0004;
+    }
+
+    h1 {
+        text-align: center;
+    }
+</style>

@@ -1,0 +1,97 @@
+---
+import Layout from "../layouts/Layout.astro";
+import NavAdmin from "../components/NavAdmin.astro";
+---
+
+<Layout title="modificar libro">
+    <NavAdmin />
+    <form action="mod">
+        <div id="hs"><h1>Modificar Libro</h1></div>
+
+        <div id="title">
+            <label for="">Titulo</label>
+            <input type="text" />
+        </div>
+        <div id="autor">
+            <label for="">Autor</label>
+            <input type="text" />
+        </div>
+        <div id="editorial">
+            <label for="">Editorial</label>
+            <input type="text" />
+        </div>
+
+        <div id="category">
+            <label for="">Categoria</label>
+            <input type="text" />
+        </div>
+        <div id="place">
+            <label for="">Lugar</label>
+            <input type="text" />
+        </div>
+    </form>
+</Layout>
+
+<style>
+    @media (width <= 1000px) {
+        form {
+            width: 80%;
+        }
+    }
+
+    @media (width > 1000px) {
+        form {
+            width: 30%;
+        }
+    }
+    #autor {
+        grid-area: autor;
+    }
+    #title {
+        grid-area: title;
+    }
+    #place {
+        grid-area: place;
+    }
+    #editorial {
+        grid-area: editorial;
+    }
+    #category {
+        grid-area: category;
+    }
+
+    #hs {
+        grid-area: hs;
+    }
+    form {
+        position: absolute;
+        top: 15%;
+        left: 30%;
+        width: 40%;
+        height: 50%;
+        padding: 4rem 1rem;
+        border-radius: 1rem;
+        background-color: #00b3e466;
+        box-shadow: 0.5rem 0.5rem 2rem #0004;
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "hs hs hs"
+            "title title autor" "editorial editorial category"
+            "place place place";
+        gap: 1rem;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    input {
+        width: 100%;
+    }
+    h1 {
+        text-align: center;
+    }
+</style>

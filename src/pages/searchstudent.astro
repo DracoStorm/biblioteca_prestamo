@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/NavAdmin.astro";
+import Search from "../components/Search.astro";
+import Filter from "../components/Filter.astro";
+import SearchResult from "../components/SearchResult.astro";
+import Student from "../components/Student.astro";
+---
+
+<Layout title="modificacion prestamo">
+    <Nav />
+    <Search>
+        <Filter filter="Nombre" />
+        <Filter filter="Matricula" />
+    </Search>
+    <SearchResult>
+        <Student
+            name="Karla Castro Landa"
+            matricula="202212345"
+            email="karlacastrolan@alumno.buap.mx"
+        />
+        <Student
+            name="Karla Castro Landa"
+            matricula="202212345"
+            email="karlacastrolan@alumno.buap.mx"
+        />
+        <Student
+            name="Karla Castro Landa"
+            matricula="202212345"
+            email="karlacastrolan@alumno.buap.mx"
+        />
+        <Student
+            name="Karla Castro Landa"
+            matricula="202212345"
+            email="karlacastrolan@alumno.buap.mx"
+        />
+    </SearchResult>
+</Layout>
