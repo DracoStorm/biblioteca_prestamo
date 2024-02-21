@@ -1,0 +1,61 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/NavAdmin.astro";
+---
+
+<Layout title="modificar estudiante">
+    <Nav />
+    <form action="mod">
+        <h1>¿Esta seguro?</h1>
+        <h3>Esta acción es irreversible</h3>
+        <div>
+            <input type="button" id="s" value="Si" />
+            <input type="button" id="n" value="No" />
+        </div>
+    </form>
+</Layout>
+
+<style>
+    @media (width <= 1000px) {
+        form {
+            width: 80%;
+        }
+    }
+
+    @media (width > 1000px) {
+        form {
+            width: 30%;
+        }
+    }
+    input {
+        width: 6rem;
+        color: #fefefe;
+        font-size: 0.9rem;
+        font-weight: bold;
+        padding: 0.2rem 1rem;
+        box-shadow: 0.2rem 0.2rem 1rem #0005;
+    }
+    #s {
+        background-color: #fc4c4c;
+    }
+    #n {
+        background-color: #00b3e466;
+    }
+    form {
+        margin: 5rem auto;
+        width: 30%;
+        height: 30%;
+        padding: 4rem 1rem;
+        border-radius: 1rem;
+        display: flex;
+        background-color: #00b3e466;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0.5rem 0.5rem 2rem #0004;
+    }
+
+    h1 {
+        text-align: center;
+    }
+</style>
