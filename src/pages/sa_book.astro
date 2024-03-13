@@ -3,11 +3,11 @@ import Layout from "../layouts/Layout.astro";
 import NavAdmin from "../components/NavAdmin.astro";
 import Filter from "../components/Filter.astro";
 import Search from "../components/Search.astro";
-import BookItem from "../components/BookItem.astro";
-import SearchResult from "../components/SearchResult.astro";
+import BookItem from "../components/Book.astro";
+import SearchResult from "../components/SearchBox.astro";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Buscar libro">
     <NavAdmin />
     <Search>
         <Filter filter="Titulo" />
@@ -46,5 +46,5 @@ import SearchResult from "../components/SearchResult.astro";
             dele=""
         />
     </SearchResult>
-    <footer>.</footer>
 </Layout>
+<footer>.</footer>
