@@ -2,21 +2,21 @@
 import Layout from "../../../layouts/Layout.astro";
 import NavAdmin from "../../../components/NavAdmin.astro";
 import Filter from "../../../components/Filter.astro";
-import Search from "../../../components/Search.astro";
+import SearchBar from "../../../components/Search.astro";
 import BookItem from "../../../components/Book.astro";
 import SearchResult from "../../../components/SearchBox.astro";
 ---
 
 <Layout title="Buscar libro">
     <NavAdmin />
-    <Search>
+    <SearchBar>
         <Filter filter="Titulo" />
         <Filter filter="Categoria" />
         <Filter filter="Editorial" />
         <Filter filter="Autor" />
         <Filter filter="ID" />
         <a href="registrarlibro"><Filter filter="Registrar Libro" /></a>
-    </Search>
+    </SearchBar>
     <SearchResult>
         <BookItem
             icon="󰃉"
