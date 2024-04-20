@@ -1,0 +1,15 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import NavBarAdmin from "../../components/NavBarAdmin.astro";
+import ActionMenu from "../../components/ActionMenu.astro";
+---
+
+<Layout title="book">
+    <NavBarAdmin />
+    <ActionMenu
+        registerurl="./book/register"
+        updateurl="./book/update"
+        searchurl="./book/search"
+        deleteurl="./book/delete"
+    />
+</Layout>

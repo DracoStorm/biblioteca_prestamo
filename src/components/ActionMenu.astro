@@ -1,0 +1,47 @@
+---
+interface Props {
+    registerurl: string;
+    updateurl: string;
+    searchurl: string;
+    deleteurl: string;
+}
+const { registerurl, updateurl, searchurl, deleteurl } = Astro.props;
+---
+
+<div>
+    <a href={registerurl} id="register">󰗛</a>
+    <a href={updateurl} id="update">󱚌</a>
+    <a href={searchurl} id="search">󰺄</a>
+    <a href={deleteurl} id="delete">󰗙</a>
+</div>
+
+<style>
+    div {
+        width: 40%;
+        height: 500px;
+        margin: 12rem auto;
+        display: grid;
+        grid-template-areas: "register update" "search delete";
+        align-items: center;
+        justify-items: center;
+        background-color: #003a5d;
+        border-radius: 1rem;
+    }
+    a {
+        text-decoration: none;
+        color: aliceblue;
+        font-size: 5rem;
+    }
+    #register {
+        grid-area: register;
+    }
+    #update {
+        grid-area: update;
+    }
+    #search {
+        grid-area: search;
+    }
+    #delete {
+        grid-area: delete;
+    }
+</style>
