@@ -1,20 +1,20 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import NavUser from "../../components/NavUser.astro";
-import Filter from "../../components/Filter.astro";
-import Search from "../../components/Search.astro";
+import NavUser from "../../components/NavBarAdmin.astro";
+import Filter from "../../components/FilterItem.astro";
+import SearchBar from "../../components/SearchBar.astro";
 import SearchResult from "../../components/SearchBox.astro";
-import BookItem from "../../components/Book.astro";
+import BookItem from "../../components/BookItem.astro";
 ---
 
 <Layout title="Buscar libro">
 	<NavUser />
-	<Search>
+	<SearchBar>
 		<Filter filter="Titulo" />
 		<Filter filter="Categoria" />
 		<Filter filter="Editorial" />
 		<Filter filter="Autor" />
-	</Search>
+	</SearchBar>
 	<SearchResult>
 		<BookItem
 			icon="󱁯"
