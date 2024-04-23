@@ -1,91 +1,15 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Book from "../../components/BookItem.astro";
-import SearchResult from "../../components/SearchBox.astro";
+import NavBarAdmin from "../../components/NavBarAdmin.astro";
+import ActionMenu from "../../components/ActionMenuLoan.astro";
 ---
 
-<Layout title="login">
-    <form action="login.js" method="post">
-        <h1>Prestamo Estado</h1>
-        <div id="agregarlibro">
-            <label for="Register">󰗛</label>
-            <input
-                type="text"
-                name="Register"
-                id="res"
-                placeholder="ID Libro"
-            />
-        </div>
-
-        <SearchResult>
-            <div>
-                <span>2022-01-18</span>
-                <Book
-                    icon="󰗙"
-                    title="Inginieria Aeroespacial"
-                    category="Ingenieria"
-                    place="Central"
-                    autor="Richard Wayland"
-                    editorial="Ingenieros > Licenciados"
-                    dele="󱚗"
-                />
-            </div>
-            <div>
-                <span>2022-01-18</span>
-                <Book
-                    icon="󰗙"
-                    title="Inginieria Aeroespacial"
-                    category="Ingenieria"
-                    place="Central"
-                    autor="Richard Wayland"
-                    editorial="Ingenieros > Licenciados"
-                    dele="󱚆"
-                />
-            </div>
-        </SearchResult>
-    </form>
+<Layout title="loan">
+    <NavBarAdmin />
+    <ActionMenu
+        registerurl="./loan/register"
+        updateurl="./loan/update"
+        searchurl="./loan/searchl"
+        deleteurl="./loan/delete"
+    />
 </Layout>
-
-<style>
-    @media (width <= 1000px) {
-        form {
-            width: 80%;
-        }
-    }
-
-    @media (width > 1000px) {
-        form {
-            width: 80%;
-        }
-    }
-    form {
-        position: absolute;
-        top: 7%;
-        left: 10%;
-        height: 70%;
-        padding: 4rem 1rem;
-        border-radius: 1rem;
-        display: flex;
-        background-color: #00b3e466;
-        justify-content: space-around;
-        flex-direction: column;
-        align-items: center;
-        box-shadow: 0.5rem 0.5rem 2rem #0004;
-    }
-
-    h1,
-    h2 {
-        text-align: center;
-    }
-
-    input {
-        height: 1.5rem;
-    }
-
-    #agregarlibro {
-        font-size: 1.5rem;
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-    }
-</style>

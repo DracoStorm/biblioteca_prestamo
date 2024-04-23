@@ -3,28 +3,19 @@ import Layout from "../../../layouts/Layout.astro";
 import NavAdmin from "../../../components/NavBarAdmin.astro";
 ---
 
-<Layout title="modificar prestamo">
+<Layout title="buscar prestamo">
     <NavAdmin />
     <form action="mod">
-        <div id="hs"><h1>Actualizar préstamo</h1></div>
-
-        <div id="matricula">
-            <label for="">Matricula</label>
-            <input type="text" />
-        </div>
+        <div id="bp"><h1>Buscar préstamo</h1></div>
     
         <div id="id">
             <label for="">ID</label>
             <input type="text" />
         </div>
 
-        <div id="fecha">
-            <label for="">Nueva fecha del préstamo</label>
-            <input type="date" />
-        </div>
 
         <div id="btns">
-            <a href="confirmacion" id="mod">Actualizar</a>
+            <a href="" id="mod">Buscar</a>
         </div>
     </form>
 </Layout>

@@ -6,25 +6,15 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
 <Layout title="modificar prestamo">
     <NavAdmin />
     <form action="mod">
-        <div id="hs"><h1>Actualizar préstamo</h1></div>
+        <div id="hs"><h1>Eliminar préstamo</h1></div>
 
-        <div id="matricula">
-            <label for="">Matricula</label>
-            <input type="text" />
-        </div>
-    
         <div id="id">
             <label for="">ID</label>
             <input type="text" />
         </div>
-
-        <div id="fecha">
-            <label for="">Nueva fecha del préstamo</label>
-            <input type="date" />
-        </div>
-
+        <br>
         <div id="btns">
-            <a href="confirmacion" id="mod">Actualizar</a>
+            <a href="confirmacion" id="mod">Eliminar</a>
         </div>
     </form>
 </Layout>
@@ -51,6 +41,8 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
     }
     input {
         width: 50%;
+        padding: 5px;
+        text-align: center;
     }
     h1 {
         text-align: center;
@@ -70,15 +62,5 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
     }
     #btns {
         margin: 2rem;
-    }
-
-    #matricula, #id, #fecha {
-        margin: 1rem;
-        text-align: center;
-    }
-
-    input{
-        text-align: center;
-        padding: 5px;
     }
 </style>
