@@ -3,20 +3,37 @@ import Layout from "../../../layouts/Layout.astro";
 import NavAdmin from "../../../components/NavBarAdmin.astro";
 ---
 
-<Layout title="modificar prestamo">
+<Layout title="Actualizar prestamo">
     <NavAdmin />
     <form action="mod">
         <div id="hs"><h1>Aplazar prestamo</h1></div>
 
-        <div id="fecha">
-            <label for="">Fecha</label>
+        <div id="title">
+            <label for="">Titulo</label>
             <input type="text" />
         </div>
-        <div id="id">
+        <div id="autor">
+            <label for="">Autor</label>
+            <input type="text" />
+        </div>
+        <div id="editorial">
+            <label for="">Editorial</label>
+            <input type="text" />
+        </div>
+
+        <div id="category">
+            <label for="">Categoria</label>
+            <input type="text" />
+        </div>
+
+        <div id="place">
+            <label for="">Lugar</label>
+            <input type="text" />
+        </div>
+        <div id="ID">
             <label for="">ID</label>
             <input type="text" />
         </div>
-        <br>
         <div id="btns">
             <a href="confirmacion" id="mod">Actualizar</a>
         </div>
@@ -50,6 +67,9 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
     #category {
         grid-area: category;
     }
+    #ID {
+        grid-area: ID;
+    }
 
     #hs {
         grid-area: hs;
@@ -64,6 +84,13 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
         border-radius: 1rem;
         background-color: #00b3e466;
         box-shadow: 0.5rem 0.5rem 2rem #0004;
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "hs hs hs"
+            "title title autor" "editorial editorial category"
+            "place place ID";
         gap: 1rem;
     }
     div {
