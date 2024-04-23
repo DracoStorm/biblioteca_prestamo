@@ -9,12 +9,10 @@ const { name, matricula, email } = Astro.props;
 ---
 
 <div>
-    <a href="u_student">󰃉</a>
-    <a href="s_loan" id="matricula">󰺄</a>
+    <a href="loan" id="matricula">󰺄</a>
     <span id="name">{name}</span>
     <span id="matricula">{matricula}</span>
-    <span>{email}</span>
-    <a href="confirm" id="matricula" class="xl"></a>
+    <span id="email">{email}</span>
 </div>
 
 <style>
@@ -34,9 +32,7 @@ const { name, matricula, email } = Astro.props;
     #matricula {
         background-color: #1116;
     }
-    .xl {
-        padding-right: 1.8rem;
-    }
+    
     a {
         background-color: #111a;
         border-radius: 0;
