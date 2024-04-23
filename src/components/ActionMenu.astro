@@ -10,19 +10,25 @@ const { registerurl, updateurl, searchurl, deleteurl } = Astro.props;
 
 <div>
     <a href={registerurl} id="register">󰗛</a>
+    <p>Registrar un libro</p>
     <a href={updateurl} id="update">󱚌</a>
+    <p>Actualizar un libro</p>
     <a href={searchurl} id="search">󰺄</a>
+    <p>Buscar un libro</p>
     <a href={deleteurl} id="delete">󰗙</a>
+    <p>Borrar un libro</p>
 </div>
 
 <style>
     div {
-        width: 40%;
+        width: 80%;
         height: 500px;
-        margin: 12rem auto;
+        margin-left: 10rem;
+        margin-top: 4rem;
         display: grid;
         grid-template-areas: "register update" "search delete";
         align-items: center;
+        text-align: center;
         justify-items: center;
         background-color: #003a5d;
         border-radius: 1rem;
@@ -33,15 +39,15 @@ const { registerurl, updateurl, searchurl, deleteurl } = Astro.props;
         font-size: 5rem;
     }
     #register {
-        grid-area: register;
+        grid-area: auto;
     }
     #update {
-        grid-area: update;
+        grid-area: auto;
     }
     #search {
-        grid-area: search;
+        grid-area: auto;
     }
     #delete {
-        grid-area: delete;
+        grid-area: auto;
     }
 </style>
