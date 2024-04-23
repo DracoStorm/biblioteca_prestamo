@@ -3,7 +3,7 @@ import Layout from "../../../layouts/Layout.astro";
 import NavAdmin from "../../../components/NavBarAdmin.astro";
 ---
 
-<Layout title="modificar libro">
+<Layout title="Registrar libro">
     <NavAdmin />
     <form action="mod">
         <div id="hs"><h1>Registrar Libro</h1></div>
@@ -25,11 +25,18 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
             <label for="">Categoria</label>
             <input type="text" />
         </div>
+
         <div id="place">
             <label for="">Lugar</label>
             <input type="text" />
         </div>
-        <a href="confirm">Registrar</a>
+        <div id="ID">
+            <label for="">ID</label>
+            <input type="text" />
+        </div>
+        <div id="btns">
+            <a href="confirmacion" id="mod">Actualizar</a>
+        </div>
     </form>
 </Layout>
 
@@ -60,6 +67,9 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
     #category {
         grid-area: category;
     }
+    #ID {
+        grid-area: ID;
+    }
 
     #hs {
         grid-area: hs;
@@ -80,7 +90,7 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
         grid-template-areas:
             "hs hs hs"
             "title title autor" "editorial editorial category"
-            "place place place";
+            "place place ID";
         gap: 1rem;
     }
     div {
@@ -94,5 +104,22 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
     }
     h1 {
         text-align: center;
+    }
+    #mod {
+        background-color: #00b3e4;
+        width: 9rem;
+        color: #fefefe;
+        font-size: 0.9rem;
+        font-weight: bold;
+        padding: 0.2rem 1rem;
+        box-shadow: 0.2rem 0.2rem 1rem #0005;
+        margin: auto;
+        border-radius: 0.8rem;
+        text-align: center;
+        text-decoration: none;
+    }
+    #btns {
+        position: relative;
+        left: 7.7rem;
     }
 </style>
