@@ -6,7 +6,7 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
 <Layout title="modificar prestamo">
     <NavAdmin />
     <form action="mod">
-        <div id="hs"><h1>Eliminar prestamo</h1></div>
+        <div id="hs"><h1>Eliminar préstamo</h1></div>
 
         <div id="id">
             <label for="">ID</label>
@@ -14,42 +14,13 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
         </div>
         <br>
         <div id="btns">
-            <a href="confirmacion" id="mod">Actualizar</a>
+            <a href="confirmacion" id="mod">Eliminar</a>
         </div>
     </form>
 </Layout>
 
 <style>
-    @media (width <= 1000px) {
-        form {
-            width: 80%;
-        }
-    }
-
-    @media (width > 1000px) {
-        form {
-            width: 30%;
-        }
-    }
-    #autor {
-        grid-area: autor;
-    }
-    #title {
-        grid-area: title;
-    }
-    #place {
-        grid-area: place;
-    }
-    #editorial {
-        grid-area: editorial;
-    }
-    #category {
-        grid-area: category;
-    }
-
-    #hs {
-        grid-area: hs;
-    }
+    
     form {
         position: absolute;
         top: 15%;
@@ -69,7 +40,9 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
         justify-content: space-around;
     }
     input {
-        width: 100%;
+        width: 50%;
+        padding: 5px;
+        text-align: center;
     }
     h1 {
         text-align: center;
@@ -88,7 +61,6 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
         text-decoration: none;
     }
     #btns {
-        position: relative;
-        left: 7.7rem;
+        margin: 2rem;
     }
 </style>

@@ -3,37 +3,26 @@ import Layout from "../../../layouts/Layout.astro";
 import NavAdmin from "../../../components/NavBarAdmin.astro";
 ---
 
-<Layout title="Actualizar prestamo">
+<Layout title="modificar prestamo">
     <NavAdmin />
     <form action="mod">
-        <div id="hs"><h1>Aplazar prestamo</h1></div>
+        <div id="hs"><h1>Actualizar préstamo</h1></div>
 
-        <div id="title">
-            <label for="">Titulo</label>
+        <div id="matricula">
+            <label for="">Matricula</label>
             <input type="text" />
         </div>
-        <div id="autor">
-            <label for="">Autor</label>
-            <input type="text" />
-        </div>
-        <div id="editorial">
-            <label for="">Editorial</label>
-            <input type="text" />
-        </div>
-
-        <div id="category">
-            <label for="">Categoria</label>
-            <input type="text" />
-        </div>
-
-        <div id="place">
-            <label for="">Lugar</label>
-            <input type="text" />
-        </div>
-        <div id="ID">
+    
+        <div id="id">
             <label for="">ID</label>
             <input type="text" />
         </div>
+
+        <div id="fecha">
+            <label for="">Nueva fecha del préstamo</label>
+            <input type="date" />
+        </div>
+
         <div id="btns">
             <a href="confirmacion" id="mod">Actualizar</a>
         </div>
@@ -41,39 +30,7 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
 </Layout>
 
 <style>
-    @media (width <= 1000px) {
-        form {
-            width: 80%;
-        }
-    }
-
-    @media (width > 1000px) {
-        form {
-            width: 30%;
-        }
-    }
-    #autor {
-        grid-area: autor;
-    }
-    #title {
-        grid-area: title;
-    }
-    #place {
-        grid-area: place;
-    }
-    #editorial {
-        grid-area: editorial;
-    }
-    #category {
-        grid-area: category;
-    }
-    #ID {
-        grid-area: ID;
-    }
-
-    #hs {
-        grid-area: hs;
-    }
+    
     form {
         position: absolute;
         top: 15%;
@@ -84,13 +41,6 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
         border-radius: 1rem;
         background-color: #00b3e466;
         box-shadow: 0.5rem 0.5rem 2rem #0004;
-        display: grid;
-        grid-template-rows: repeat(4, 1fr);
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas:
-            "hs hs hs"
-            "title title autor" "editorial editorial category"
-            "place place ID";
         gap: 1rem;
     }
     div {
@@ -100,7 +50,7 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
         justify-content: space-around;
     }
     input {
-        width: 100%;
+        width: 50%;
     }
     h1 {
         text-align: center;
@@ -119,7 +69,16 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
         text-decoration: none;
     }
     #btns {
-        position: relative;
-        left: 7.7rem;
+        margin: 2rem;
+    }
+
+    #matricula, #id, #fecha {
+        margin: 1rem;
+        text-align: center;
+    }
+
+    input{
+        text-align: center;
+        padding: 5px;
     }
 </style>

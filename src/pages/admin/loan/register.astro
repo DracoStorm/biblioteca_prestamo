@@ -1,8 +1,84 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import NavBarAdmin from "../../../components/NavBarAdmin.astro";
+import NavAdmin from "../../../components/NavBarAdmin.astro";
 ---
 
-<Layout title="delete">
-    <NavBarAdmin />
+<Layout title="modificar prestamo">
+    <NavAdmin />
+    <form action="mod">
+        <div id="hs"><h1>Registrar préstamo</h1></div>
+
+        <div id="matricula">
+            <label for="">Matricula</label>
+            <input type="text" />
+        </div>
+    
+        <div id="id">
+            <label for="">ID</label>
+            <input type="text" />
+        </div>
+
+        <div id="fecha">
+            <label for="">Fecha del préstamo</label>
+            <input type="date" />
+        </div>
+
+        <div id="btns">
+            <a href="confirmacion" id="mod">Registrar</a>
+        </div>
+    </form>
 </Layout>
+
+<style>
+    
+    form {
+        position: absolute;
+        top: 15%;
+        left: 30%;
+        width: 40%;
+        height: 50%;
+        padding: 4rem 1rem;
+        border-radius: 1rem;
+        background-color: #00b3e466;
+        box-shadow: 0.5rem 0.5rem 2rem #0004;
+        gap: 1rem;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    input {
+        width: 50%;
+    }
+    h1 {
+        text-align: center;
+    }
+    #mod {
+        background-color: #00b3e4;
+        width: 9rem;
+        color: #fefefe;
+        font-size: 0.9rem;
+        font-weight: bold;
+        padding: 0.2rem 1rem;
+        box-shadow: 0.2rem 0.2rem 1rem #0005;
+        margin: auto;
+        border-radius: 0.8rem;
+        text-align: center;
+        text-decoration: none;
+    }
+    #btns {
+        margin: 2rem;
+    }
+
+    #matricula, #id, #fecha {
+        margin: 1rem;
+        text-align: center;
+    }
+
+    input{
+        text-align: center;
+        padding: 5px;
+    }
+</style>
