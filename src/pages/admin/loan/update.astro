@@ -1,39 +1,98 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import Nav from "../../../components/NavBarStudent.astro";
-import Search from "../../../components/SearchBar.astro";
-import Filter from "../../../components/FilterItem.astro";
-import SearchResult from "../../../components/SearchBox.astro";
-import Student from "../../../components/StudentItem.astro";
+import NavAdmin from "../../../components/NavBarAdmin.astro";
 ---
 
-<Layout title="modificacion prestamo">
-    <Nav />
-    <Search>
-        <Filter filter="Nombre" />
-        <Filter filter="Matricula" />
-        <a href="registrar"><Filter filter="registrar usuario" /></a>
-    </Search>
-    <SearchResult>
-        <Student
-            name="Karla Castro Landa"
-            matricula="202212345"
-            email="karlacastrolan@alumno.buap.mx"
-        />
-        <Student
-            name="Karla Castro Landa"
-            matricula="202212345"
-            email="karlacastrolan@alumno.buap.mx"
-        />
-        <Student
-            name="Karla Castro Landa"
-            matricula="202212345"
-            email="karlacastrolan@alumno.buap.mx"
-        />
-        <Student
-            name="Karla Castro Landa"
-            matricula="202212345"
-            email="karlacastrolan@alumno.buap.mx"
-        />
-    </SearchResult>
+<Layout title="modificar prestamo">
+    <NavAdmin />
+    <form action="mod">
+        <div id="hs"><h1>Aplazar prestamo</h1></div>
+
+        <div id="fecha">
+            <label for="">Fecha</label>
+            <input type="text" />
+        </div>
+        <div id="id">
+            <label for="">ID</label>
+            <input type="text" />
+        </div>
+        <br>
+        <div id="btns">
+            <a href="confirmacion" id="mod">Actualizar</a>
+        </div>
+    </form>
 </Layout>
+
+<style>
+    @media (width <= 1000px) {
+        form {
+            width: 80%;
+        }
+    }
+
+    @media (width > 1000px) {
+        form {
+            width: 30%;
+        }
+    }
+    #autor {
+        grid-area: autor;
+    }
+    #title {
+        grid-area: title;
+    }
+    #place {
+        grid-area: place;
+    }
+    #editorial {
+        grid-area: editorial;
+    }
+    #category {
+        grid-area: category;
+    }
+
+    #hs {
+        grid-area: hs;
+    }
+    form {
+        position: absolute;
+        top: 15%;
+        left: 30%;
+        width: 40%;
+        height: 50%;
+        padding: 4rem 1rem;
+        border-radius: 1rem;
+        background-color: #00b3e466;
+        box-shadow: 0.5rem 0.5rem 2rem #0004;
+        gap: 1rem;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    input {
+        width: 100%;
+    }
+    h1 {
+        text-align: center;
+    }
+    #mod {
+        background-color: #00b3e4;
+        width: 9rem;
+        color: #fefefe;
+        font-size: 0.9rem;
+        font-weight: bold;
+        padding: 0.2rem 1rem;
+        box-shadow: 0.2rem 0.2rem 1rem #0005;
+        margin: auto;
+        border-radius: 0.8rem;
+        text-align: center;
+        text-decoration: none;
+    }
+    #btns {
+        position: relative;
+        left: 7.7rem;
+    }
+</style>
