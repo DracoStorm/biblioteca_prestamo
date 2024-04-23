@@ -9,14 +9,10 @@ const { registerurl, updateurl, searchurl, deleteurl } = Astro.props;
 ---
 
 <div>
-    <a href={registerurl} id="register">󰗛</a>
-    <p>Registrar un libro</p>
-    <a href={updateurl} id="update">󱚌</a>
-    <p>Actualizar un libro</p>
-    <a href={searchurl} id="search">󰺄</a>
-    <p>Buscar un libro</p>
-    <a href={deleteurl} id="delete">󰗙</a>
-    <p>Borrar un libro</p>
+    <a href={registerurl} id="register">󰗛 <p>Registrar un libro</p></a>
+    <a href={updateurl} id="update">󱚌 <p>Actualizar un libro</p></a>
+    <a href={searchurl} id="search">󰺄 <p>Buscar un libro</p></a>
+    <a href={deleteurl} id="delete">󰗙 <p>Eliminar un libro</p></a>
 </div>
 
 <style>
@@ -32,6 +28,9 @@ const { registerurl, updateurl, searchurl, deleteurl } = Astro.props;
         justify-items: center;
         background-color: #003a5d;
         border-radius: 1rem;
+    }
+    p{
+        font-size: 1rem;
     }
     a {
         text-decoration: none;
