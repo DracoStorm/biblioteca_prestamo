@@ -1,8 +1,15 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import NavBarAdmin from "../../components/NavBarAdmin.astro";
+import MenuStudent from "../../components/MenuStudent.astro";
 ---
 
 <Layout title="student">
     <NavBarAdmin />
+    <MenuStudent
+        registerurl="./student/register"
+        updateurl="./student/update"
+        searchurl="./student/search"
+        deleteurl="./student/delete"
+    />
 </Layout>

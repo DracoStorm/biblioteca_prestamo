@@ -13,7 +13,9 @@ import NavBarAdmin from "../../../components/NavBarAdmin.astro";
         <input type="text" />
         <label for="">Correo</label>
         <input type="text" />
-        <a href="confirm">Actualizar</a>
+        <div id="btns">
+            <a href="confirm" id="register">Registrar</a>
+        </div>
     </form>
 </Layout>
 
@@ -47,5 +49,21 @@ import NavBarAdmin from "../../../components/NavBarAdmin.astro";
 
     h1 {
         text-align: center;
+    }
+    #btns {
+        margin-top: 1rem;
+    }
+    #register {
+        background-color: #00b3e4;
+        width: 9rem;
+        color: #fefefe;
+        font-size: 0.9rem;
+        font-weight: bold;
+        padding: 0.2rem 1rem;
+        box-shadow: 0.2rem 0.2rem 1rem #0005;
+        margin: auto;
+        border-radius: 0.8rem;
+        text-align: center;
+        text-decoration: none;
     }
 </style>
