@@ -1,12 +1,12 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
-import NavAdmin from "../../../components/NavBarAdmin.astro";
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/NavBarStudent.astro";
 ---
 
-<Layout title="modificar prestamo">
-    <NavAdmin />
+<Layout title="extender prestamo">
+    <Nav />
     <form action="mod">
-        <div id="hs"><h1>Registrar préstamo</h1></div>
+        <div id="hs"><h1>Extender préstamo</h1></div>
 
         <div id="matricula">
             <label for="">Matrícula</label>
@@ -19,12 +19,12 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
         </div>
 
         <div id="fecha">
-            <label for="">Fecha del préstamo</label>
+            <label for="">Nueva fecha del préstamo</label>
             <input type="date" />
         </div>
 
         <div id="btns">
-            <a href="" id="mod">Registrar</a>
+            <a href="/admin/confirm" id="mod">Extender</a>
         </div>
     </form>
 </Layout>
@@ -82,3 +82,5 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
         padding: 5px;
     }
 </style>
+
+</Layout>
