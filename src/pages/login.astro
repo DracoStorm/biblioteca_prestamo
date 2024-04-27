@@ -30,6 +30,7 @@ import Layout from "../layouts/Layout.astro";
         }
     }
     form {
+        color: #fdfdfd;
         position: absolute;
         top: 15%;
         left: 30%;
@@ -38,7 +39,7 @@ import Layout from "../layouts/Layout.astro";
         padding: 4rem 1rem;
         border-radius: 1rem;
         display: flex;
-        background-color: #00b3e466;
+        background: linear-gradient(150deg, #8c648c11, #fdfdfd11, #8c648c);
         justify-content: space-around;
         flex-direction: column;
         align-items: center;
@@ -48,26 +49,28 @@ import Layout from "../layouts/Layout.astro";
     h1,
     h2 {
         text-align: center;
-        
     }
 
     #login {
-        background-color: #00b3e4;
+        background-color: #592925;
         width: 9rem;
-        color: #fefefe;
+        color: #fdfdfd;
         font-size: 0.9rem;
         font-weight: bold;
         padding: 0.2rem 1rem;
         box-shadow: 0.2rem 0.2rem 1rem #0005;
         margin-top: 1rem;
     }
-    
-    #res, #resumeN {
-        padding: .2rem;
+
+    #res,
+    #resumeN {
+        padding: 0.2rem;
     }
 
-    label{
+    label {
         font-size: 20px;
     }
-    
+    input {
+        background-color: #dfd3d38e;
+    }
 </style>
