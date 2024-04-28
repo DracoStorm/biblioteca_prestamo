@@ -3,29 +3,114 @@
 ---
 
 <nav>
-    <a href="/admin/book"></a>
-    <a href="/admin/loan">󰂺</a>
-    <a href="/admin/student">󰡉</a>
-    <a id="login" href="/"><span>󰀒</span></a>
+    <ul class="nav">
+        <li>
+            <a href=""></a>
+            <ul class="menu">
+                <li><a href="/admin/book/register">Registrar libro</a></li>
+                <hr />
+                <li><a href="/admin/book/update">Actualizar libro</a></li>
+                <hr />
+                <li><a href="/admin/book/search">Buscar libro</a></li>
+                <hr />
+                <li><a href="/admin/book/delete">Eliminar libro</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="/admin/loan">󰂺</a>
+            <ul class="menu">
+                <li><a href="/admin/loan/register">Registrar prestamo</a></li>
+                <hr />
+                <li><a href="/admin/loan/searchl">Buscar prestamo</a></li>
+                <hr />
+                <li><a href="/admin/loan/delete">Eliminar prestamo</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="/admin/student">󰡉</a>
+            <ul class="menu">
+                <li>
+                    <a href="/admin/student/register">Registrar estudiante</a>
+                </li>
+                <hr />
+                <li>
+                    <a href="/admin/student/opdate">Actualizar estudiante</a>
+                </li>
+                <hr />
+                <li><a href="/admin/student/search">Burcar estudiante</a></li>
+                <hr />
+                <li><a href="/admin/student/delete">Eliminar estuduante</a></li>
+            </ul>
+        </li>
+        <li><a id="login" href="/"><span>󰀒</span></a></li>
+    </ul>
 </nav>
 <style>
     nav {
         padding: 0 2rem;
         display: flex;
-        justify-content: space-between;
-        background-color: #202c58;
+        justify-content: center;
+        background-color: #443659;
     }
     a {
-        color: hsl(204, 56%, 76%);
         font-size: 2rem;
-        text-decoration: none;
-        width: 5rem;
-        text-align: center;
+    }
+    .nav {
+        display: flex;
+        list-style: none;
+        padding: 0;
+    }
+    ul {
+        list-style: none;
+    }
+    .nav > li {
+        position: relative;
+        margin-right: 10rem;
     }
 
-    a:hover {
-        color: #bdcafd;
-        background-color: #0730ac;
-        text-decoration: underline;
+    .nav li a {
+        text-decoration: none;
+        padding: 10px 15px;
+        color: #f2d0cf;
+        text-align: center;
+        width: 3rem;
+    }
+    .nav li a:hover {
+        background-color: #c6b8d9;
+    }
+    .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #c282b2;
+        padding: 5px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        z-index: 999;
+    }
+    .nav li:hover > .menu {
+        display: block;
+    }
+
+    .menu li {
+        margin: 5px 0;
+    }
+
+    .menu li a {
+        color: hsl(273, 78%, 49%);
+        font-size: 1rem;
+    }
+    .nav > li > a::after {
+        margin-left: 5px;
+        font-size: 0.8em;
+    }
+    hr {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        border-color: #ffffff;
+        display: block;
     }
 </style>
