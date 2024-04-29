@@ -5,7 +5,7 @@
 <nav>
     <ul class="nav">
         <li>
-            <a href=""></a>
+            <a>Libro</a>
             <ul class="menu">
                 <li><a href="/admin/book/register">Registrar libro</a></li>
                 <hr />
@@ -17,7 +17,7 @@
             </ul>
         </li>
         <li>
-            <a href="/admin/loan">󰂺</a>
+            <a>Prestamo</a>
             <ul class="menu">
                 <li><a href="/admin/loan/register">Registrar prestamo</a></li>
                 <hr />
@@ -28,7 +28,7 @@
         </li>
 
         <li>
-            <a href="/admin/student">󰡉</a>
+            <a>Estudiante</a>
             <ul class="menu">
                 <li>
                     <a href="/admin/student/register">Registrar estudiante</a>
@@ -61,7 +61,7 @@
         background-color: var(--color-morado-medio);
     }
     a {
-        font-size: 2rem;
+        font-size: 1.2rem;
     }
     .nav {
         display: flex;
@@ -69,7 +69,7 @@
         padding: 0;
     }
     ul {
-        list-style:none;
+        list-style: none;
     }
     .nav > li {
         position: relative;
@@ -84,7 +84,6 @@
         width: 3rem;
     }
     .nav li a:hover {
-        background-color: #c6b8d9;
     }
     .menu {
         display: none;
@@ -94,7 +93,6 @@
         background-color: #c282b2;
         padding: 5px;
         border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         z-index: 999;
     }
     .nav li:hover > .menu {
@@ -106,7 +104,7 @@
     }
 
     .menu li a {
-        color: hsl(273, 78%, 49%);
+        color: #ffffff;
         font-size: 1rem;
     }
     .nav > li > a::after {
