@@ -47,11 +47,18 @@
     </ul>
 </nav>
 <style>
+    :root{
+        --color-osucro:#32253F;
+        --color-morado-medio: #443659;
+        --color-morado-claro: #8C618C;
+        --color-lila: #C6B8D9;
+        --color-salmon: #F2D0CF;
+    }   
     nav {
         padding: 0 2rem;
         display: flex;
         justify-content: center;
-        background-color: #443659;
+        background-color: var(--color-morado-medio);
     }
     a {
         font-size: 2rem;
@@ -72,7 +79,7 @@
     .nav li a {
         text-decoration: none;
         padding: 10px 15px;
-        color: #f2d0cf;
+        color: var(--color-salmon);
         text-align: center;
         width: 3rem;
     }
