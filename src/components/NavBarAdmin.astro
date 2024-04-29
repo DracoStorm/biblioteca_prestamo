@@ -48,7 +48,7 @@
 </nav>
 <style>
     :root{
-        --color-osucro:#32253F;
+        --color-oscuro:#32253F;
         --color-morado-medio: #443659;
         --color-morado-claro: #8C618C;
         --color-lila: #C6B8D9;
@@ -68,6 +68,7 @@
         list-style: none;
         padding: 0;
     }
+    
     ul {
         list-style: none;
     }
@@ -90,10 +91,14 @@
         position: absolute;
         top: 100%;
         left: 0;
-        background-color: #c282b2;
+        background-color: var(--color-morado-claro);
         padding: 5px;
         border-radius: 5px;
         z-index: 999;
+        table-layout: fixed;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
     }
     .nav li:hover > .menu {
         display: block;
@@ -109,7 +114,7 @@
     }
     .nav > li > a::after {
         margin-left: 5px;
-        font-size: 0.8em;
+        font-size: 1rem;
     }
     hr {
         margin: 0;
