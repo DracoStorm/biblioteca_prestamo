@@ -18,6 +18,13 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style>
+    body{
+        background-image: url(/public/imagenes/foto2.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+
+    }
     @media (width <= 1000px) {
         form {
             width: 80%;
@@ -30,7 +37,7 @@ import Layout from "../layouts/Layout.astro";
         }
     }
     form {
-        color: #fdfdfd;
+        color: #ffffff;
         position: absolute;
         top: 15%;
         left: 30%;
@@ -39,7 +46,7 @@ import Layout from "../layouts/Layout.astro";
         padding: 4rem 1rem;
         border-radius: 1rem;
         display: flex;
-        background: linear-gradient(150deg, #8c648c11, #fdfdfd11, #8c648c);
+        background: #32253F7c;
         justify-content: space-around;
         flex-direction: column;
         align-items: center;
@@ -52,9 +59,9 @@ import Layout from "../layouts/Layout.astro";
     }
 
     #login {
-        background-color: #592925;
+        background-color: #593954;
         width: 9rem;
-        color: #fdfdfd;
+        color: #ffffff;/*Botón*/
         font-size: 0.9rem;
         font-weight: bold;
         padding: 0.2rem 1rem;
