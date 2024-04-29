@@ -31,6 +31,11 @@ const { title } = Astro.props;
 			rgb(var(--accent-light)) 30%,
 			white 60%
 		);
+		--color-osucro:#32253F;
+		--color-morado-medio: #443659;
+		--color-morado-claro: #8C618C;
+		--color-lila: #C6B8D9;
+		--color-salmon: #F2D0CF;
 	}
 	html {
 		font-family: CodeNewRoman Nerd Font;
@@ -45,7 +50,10 @@ const { title } = Astro.props;
 		line-height: 1.6;
 		min-height: 100vh;
 		/*background: linear-gradient( #dfebf7, #296596, #071925);*/
-		background-color: #312640;
+		background-image: url(/imagenes/backgroundE.jpg);
+		background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
 	}
 	input {
 		border-radius: 2rem;
