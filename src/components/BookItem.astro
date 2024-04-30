@@ -8,9 +8,10 @@ interface Props {
     autor: string;
     editorial: string;
     icon: string;
+    url: string;
 }
 
-const {title, category, place, autor, editorial, icon} = Astro.props;
+const {title, category, place, autor, editorial, icon, url} = Astro.props;
 ---
 
 <div id="main">
@@ -19,7 +20,9 @@ const {title, category, place, autor, editorial, icon} = Astro.props;
     <div id="category">{category}</div>
     <div id="editorial">{editorial}</div>
     <div id="place">{place}</div>
-    <div id="icon" set:html={icon}></div>
+    <div id="icon">
+        <a href={url} set:html={icon}></a>
+    </div>
 </div>
 <style>
     
