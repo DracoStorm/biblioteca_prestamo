@@ -17,13 +17,13 @@
             </ul>
         </li>
         <li>
-            <a>Prestamo</a>
+            <a>Préstamo</a>
             <ul class="menu">
-                <li><a href="/admin/loan/register">Registrar prestamo</a></li>
+                <li><a href="/admin/loan/register">Registrar préstamo</a></li>
                 <hr />
                 <li><a href="/admin/loan/searchl">Renovar prestamo</a></li>
                 <hr />
-                <li><a href="/admin/loan/delete">Eliminar prestamo</a></li>
+                <li><a href="/admin/loan/delete">Eliminar préstamo</a></li>
             </ul>
         </li>
 
@@ -38,9 +38,9 @@
                     <a href="/admin/student/update">Actualizar estudiante</a>
                 </li>
                 <hr />
-                <li><a href="/admin/student/search">Burcar estudiante</a></li>
+                <li><a href="/admin/student/search">Buscar estudiante</a></li>
                 <hr />
-                <li><a href="/admin/student/delete">Eliminar estuduante</a></li>
+                <li><a href="/admin/student/delete">Eliminar estudiante</a></li>
             </ul>
         </li>
         <li><a id="login" href="/"><span>󰀒</span></a></li>
@@ -50,6 +50,7 @@
     :root{
         --color-oscuro:#32253F;
         --color-morado-medio: #443659; /*Componentes*/
+        --color-morado-medio: #44365997; /*Componentes degradado*/
         --color-morado-claro: #8C618C; /*Botones*/
         --color-lila: #C6B8D9;
         --color-salmon: #F2D0CF;
@@ -124,4 +125,16 @@
         border-color: #ffffff;
         display: block;
     }
+
+    @font-face {
+  font-family: 'Lora';
+  src: url('/fonts/Lora-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+li{
+    font-family: 'Lora';
+}
 </style>
