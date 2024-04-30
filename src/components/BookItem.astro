@@ -19,7 +19,7 @@ const {title, category, place, autor, editorial, icon} = Astro.props;
     <div id="category">{category}</div>
     <div id="editorial">{editorial}</div>
     <div id="place">{place}</div>
-    <div id="icon">{icon}</div>
+    <div id="icon" set:html={icon}></div>
 </div>
 <style>
     
