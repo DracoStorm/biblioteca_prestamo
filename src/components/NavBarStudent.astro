@@ -5,9 +5,25 @@
 <script></script>
 
 <nav>
-    <a href="/student/search"></a>
-    <a href="/student/loan">󰂺</a>
-    <a id="login" href="/">󰀒</a>
+    <a href="/student/search"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#C6B8D9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+        <path d="M21 21l-6 -6" />
+      </svg></a>
+    <a class="libro" href="/student/loan"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="35" height="35" viewBox="0 0 24 24" stroke-width="1.5" stroke="#C6B8D9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+        <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+        <path d="M3 6l0 13" />
+        <path d="M12 6l0 13" />
+        <path d="M21 6l0 13" />
+      </svg></a>
+    <a id="login" href="/"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#C6B8D9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+        <path d="M9 12h12l-3 -3" />
+        <path d="M18 15l3 -3" />
+      </svg></a>
 </nav>
 
 <style>
@@ -24,9 +40,13 @@
         text-decoration: none;
     }
 
+    .libro{
+        padding-top: .25rem;
+    }
+
     @font-face {
   font-family: 'Lora';
-  src: url('/fonts/Lora-Regular.woff') format('woff');
+  src: url('/fonts/Lora/Lora-VariableFont_wght.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
