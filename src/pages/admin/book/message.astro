@@ -1,0 +1,13 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Nav from "../../../components/NavBarAdmin.astro";
+import SearchResult from "../../../components/SearchBox.astro";
+import Messagenotfound from "../../../components/Message.astro";
+---
+
+<Layout title="Message">
+    <Nav />
+</Layout>
+<SearchResult>
+    <Messagenotfound message="¡No se encontraron los resultados del libro!" />
+</SearchResult>
