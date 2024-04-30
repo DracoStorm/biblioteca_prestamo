@@ -22,6 +22,15 @@ const {title, category, place, autor, editorial, icon} = Astro.props;
     <div id="icon">{icon}</div>
 </div>
 <style>
+    
+    @font-face {
+  font-family: 'Arvo';
+  src: url('/fonts/Arvo-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
     a {
         text-decoration: none;
         color: white;
@@ -38,19 +47,24 @@ const {title, category, place, autor, editorial, icon} = Astro.props;
     #title {
         grid-area: title;
         border-top-left-radius: 0.5rem;
+        font-family: 'Arvo', sans-serif;
     }
     #autor {
         grid-area: autor;
+        font-family: 'Arvo', sans-serif;
     }
     #category {
         grid-area: category;
         border-bottom-left-radius: 0.5rem;
+        font-family: 'Arvo', sans-serif;
     }
     #editorial {
         grid-area: editorial;
+        font-family: 'Arvo', sans-serif;
     }
     #place {
         grid-area: place;
+        font-family: 'Arvo', sans-serif;
     }
     div > div {
         display: flex;
