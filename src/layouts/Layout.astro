@@ -15,16 +15,13 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-
-	</head>
+		</head>
 	<body>
 		<slot />
 	</body>
 </html>
 <style is:global>
 
-	@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Bitter:ital,wght@0,100..900;1,100..900&family=Dosis:wght@200..800&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-	
 	:root {
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;
@@ -71,20 +68,27 @@ const { title } = Astro.props;
 	
 	@font-face {
   font-family: 'Rubik';
-  src: url('/fonts/Rubik-Regular.woff') format('woff');
+  src: url('/fonts/Rubik/Rubik-VariableFont_wght.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 h1{
-	font-family: 'Rubik';
+	font-family: 'Montserrat', sans-serif;
 }
 
 @font-face {
   font-family: 'Dosis';
-  src: url('/fonts/Dosis-Regular.woff') format('woff');
+  src: url('/fonts/Dosis/Dosis-VariableFont_wght.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -96,7 +100,7 @@ label{
 
 @font-face {
   font-family: 'Bitter';
-  src: url('/fonts/Bitter-Regular.woff') format('woff');
+  src: url('/fonts/Bitter/Bitter-VariableFont_wght.ttf') format('trutype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

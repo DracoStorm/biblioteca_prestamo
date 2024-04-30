@@ -16,6 +16,15 @@ const { name, matricula, email } = Astro.props;
 </div>
 
 <style>
+
+@font-face {
+  font-family: 'Arvo';
+  src: url('/fonts/Arvo/Arvo-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
     div {
         display: flex;
         background-color: #443659;
@@ -25,6 +34,7 @@ const { name, matricula, email } = Astro.props;
         height: 3rem;
         line-height: 2.4;
         font-size: 1.2rem;
+        font-family: 'Arvo', sans-serif;
     }
     span {
         flex-grow: 1;
@@ -43,4 +53,6 @@ const { name, matricula, email } = Astro.props;
         text-decoration: none;
         line-height: 1.2;
     }
+
+    
 </style>
