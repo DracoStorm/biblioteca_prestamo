@@ -2,77 +2,77 @@
 
 ---
 
-<nav>
-    <ul class="nav">
-        <li>
-            <a>Libro</a>
-            <ul class="menu">
-                <li><a href="/admin/book/register">Registrar libro</a></li>
-                <hr />
-                <li><a href="/admin/book/update">Actualizar libro</a></li>
-                <hr />
-                <li><a href="/admin/book/search">Buscar libro</a></li>
-                <hr />
-                <li><a href="/admin/book/delete">Eliminar libro</a></li>
-            </ul>
-        </li>
-        <li>
-            <a>Préstamo</a>
-            <ul class="menu">
-                <li><a href="/admin/loan/register">Registrar préstamo</a></li>
-                <hr />
-                <li><a href="/admin/loan/searchl">Buscar prestamo</a></li>
-                <hr />
-                <li><a href="/admin/loan/update">Renovar prestamo</a></li>
-                <hr />
-                <li><a href="/admin/loan/delete">Eliminar préstamo</a></li>
-            </ul>
-        </li>
+<div class="header">
+    <div class="navigation">
+        <ul class="nav">
+            <li>
+                <a class="seccion" href="#">Libro</a>
+                <ul class="menu">
+                    <li>
+                        <a href="/admin/book/register">Registrar libro</a>
+                    </li>
 
-        <li>
-            <a>Estudiante</a>
-            <ul class="menu">
+                    <li><a href="/admin/book/update">Actualizar libro</a></li>
+
+                    <li><a href="/admin/book/search">Buscar libro</a></li>
+                    <li><a href="/admin/book/delete">Eliminar libro</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a class="seccion" href="#">Estudiante</a>
+                <ul class="menu">
+                    <li>
+                        <a href="/admin/student/register"
+                            >Registrar estudiante</a
+                        >
+                    </li>
+                    <li>
+                        <a href="/admin/student/update">Actualizar estudiante</a
+                        >
+                    </li>
+                    <li>
+                        <a href="/admin/student/search">Buscar estudiante</a>
+                    </li>
+                    <li>
+                        <a href="/admin/student/delete">Eliminar estudiante</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <li>
-                    <a href="/admin/student/register">Registrar estudiante</a>
-                </li>
-                <hr />
-                <li>
-                    <a href="/admin/student/update">Actualizar estudiante</a>
-                </li>
-                <hr />
-                <li><a href="/admin/student/search">Buscar estudiante</a></li>
-                <hr />
-                <li><a href="/admin/student/delete">Eliminar estudiante</a></li>
-            </ul>
-        </li>
-        <li>
-            <a id="login" href="/"
-                ><span
-                    ><svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="icon icon-tabler icon-tabler-logout"
-                        width="28"
-                        height="28"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="#C6B8D9"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                    <a id="login" href="/"
+                        ><span
+                            ><svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="icon icon-tabler icon-tabler-logout"
+                                width="28"
+                                height="28"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="#C6B8D9"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path
+                                    stroke="none"
+                                    d="M0 0h24v24H0z"
+                                    fill="none"></path>
+                                <path
+                                    d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"
+                                ></path>
+                                <path d="M9 12h12l-3 -3"></path>
+                                <path d="M18 15l3 -3"></path>
+                            </svg></span
+                        ></a
                     >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"
-                        ></path>
-                        <path
-                            d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"
-                        ></path>
-                        <path d="M9 12h12l-3 -3"></path>
-                        <path d="M18 15l3 -3"></path>
-                    </svg></span
-                ></a
-            >
-        </li>
-    </ul>
-</nav>
+                </li>
+            </li>
+        </ul>
+    </div>
+</div>
+
 <style>
     :root {
         --color-oscuro: #32253f;
@@ -82,77 +82,75 @@
         --color-lila: #c6b8d9;
         --color-salmon: #f2d0cf;
         --color-sombra: #464444a9; /*Sombra botón*/
+        --color-rojo: #ff2234;
+        --color-rojo-hover: #ca0313;
+
     }
-    nav {
-        padding: 0 2rem;
-        display: flex;
-        justify-content: center;
+    .header {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
         background-color: var(--color-oscuro);
-    }
-    a {
-        font-size: 1.2rem;
-    }
-    .nav {
+        padding: 0 8rem;
         display: flex;
+        align-items: center;
+        z-index: 1000;
+    }
+    ul.nav {
+        margin: 0;
+    }
+    .navigation {
+        width: 100%;
+        background-color: #32253f;
+        height: 4.7rem;
+    }
+    .navigation ul {
         list-style: none;
+        display: flex;
         padding: 0;
     }
-
-    ul {
-        list-style: none;
-    }
-    .nav > li {
+    .header .navigation ul li {
+        float: left;
         position: relative;
-        margin-right: 10rem;
+        text-align: center;
+        flex-grow: 1;
+    }
+    .header .navigation ul li a {
+        font-size: 1.2rem;
+        color: #c6b8d9;
+        text-decoration: none;
+        padding: 1.1rem;
+        display: block;
+        transition: all 0.2s ease;
+        text-align: center;
+    }
+    .header .navigation ul li a:hover {
+        background-color: var(--color-morado-medio);
+        font-size: 1.4rem;
     }
 
-    .nav li a {
-        text-decoration: none;
-        padding: 10px 15px;
-        color: var(--color-lila);
-        text-align: center;
-        width: 3rem;
+    .header .navigation ul li ul {
+        position: absolute;
+        right: 0;
+        background-color: var(--color-morado-claro);
+        display: none;
+        align-items: center;
     }
-    .nav li a:hover {
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.74);
-        background-color: var(--color-morado-medio);
+    .header .navigation ul li ul li a {
+        font-size: 1.1rem;
+        color: #fefefe;
+    }
+    .header .navigation ul li ul li {
+        width: 100%;
+    }
+
+    .header .navigation ul li:hover > ul {
+        display: initial;
+        flex-direction: column;
     }
     .menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: var(--color-morado-claro);
-        padding: 5px;
-        border-radius: 5px;
-        z-index: 999;
-        table-layout: fixed;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: middle;
-    }
-    .nav li:hover > .menu {
-        display: block;
-    }
-
-    .menu li {
-        margin: 5px 0;
-    }
-
-    .menu li a {
-        color: #ffffff;
-        font-size: 1rem;
-    }
-    .nav > li > a::after {
-        margin-left: 5px;
-        font-size: 1rem;
-    }
-    hr {
-        margin: 0;
-        padding: 0;
-        position: relative;
-        border-color: #ffffff;
-        display: block;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.322);
     }
 
     @font-face {
@@ -162,7 +160,6 @@
         font-style: normal;
         font-display: swap;
     }
-
     li {
         font-family: "Lora";
     }
