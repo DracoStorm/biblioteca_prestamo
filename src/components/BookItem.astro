@@ -1,5 +1,5 @@
 ---
-import type { AnyZodObject } from 'astro/zod';
+import type { AnyZodObject } from "astro/zod";
 
 interface Props {
     title: string;
@@ -8,10 +8,12 @@ interface Props {
     autor: string;
     editorial: string;
     icon: string;
+    icon1: string;
     url: string;
 }
 
-const {title, category, place, autor, editorial, icon, url} = Astro.props;
+const { title, category, place, autor, editorial, icon, icon1, url } =
+    Astro.props;
 ---
 
 <div id="main">
@@ -21,18 +23,18 @@ const {title, category, place, autor, editorial, icon, url} = Astro.props;
     <div id="editorial">{editorial}</div>
     <div id="place">{place}</div>
     <div id="icon">
-        <a href={url} set:html={icon}></a>
+        <a href={url} set:html={icon} />
+        <a href={url} set:html={icon1} />
     </div>
 </div>
 <style>
-    
     @font-face {
-  font-family: 'Arvo';
-  src: url('/fonts/Arvo/Arvo-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+        font-family: "Arvo";
+        src: url("/fonts/Arvo/Arvo-Regular.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
 
     a {
         text-decoration: none;
@@ -41,7 +43,7 @@ const {title, category, place, autor, editorial, icon, url} = Astro.props;
     }
     #icon {
         grid-area: icon;
-        display: flex;
+        display: grid;
         justify-content: center;
         align-items: center;
         flex-direction: column;
@@ -50,24 +52,24 @@ const {title, category, place, autor, editorial, icon, url} = Astro.props;
     #title {
         grid-area: title;
         border-top-left-radius: 0.5rem;
-        font-family: 'Arvo', sans-serif;
+        font-family: "Arvo", sans-serif;
     }
     #autor {
         grid-area: autor;
-        font-family: 'Arvo', sans-serif;
+        font-family: "Arvo", sans-serif;
     }
     #category {
         grid-area: category;
         border-bottom-left-radius: 0.5rem;
-        font-family: 'Arvo', sans-serif;
+        font-family: "Arvo", sans-serif;
     }
     #editorial {
         grid-area: editorial;
-        font-family: 'Arvo', sans-serif;
+        font-family: "Arvo", sans-serif;
     }
     #place {
         grid-area: place;
-        font-family: 'Arvo', sans-serif;
+        font-family: "Arvo", sans-serif;
     }
     div > div {
         display: flex;
@@ -81,11 +83,11 @@ const {title, category, place, autor, editorial, icon, url} = Astro.props;
     #category,
     #editorial,
     #place {
-        background-color: #8C618C;
+        background-color: #8c618c;
     }
     #main {
         display: grid;
-        background-color: #32253F;
+        background-color: #32253f;
         grid-template-columns: 6rem 1fr 2fr 2fr;
         grid-template-rows: 3rem 4rem;
         grid-template-areas: "icon title title autor" "icon category editorial place";
