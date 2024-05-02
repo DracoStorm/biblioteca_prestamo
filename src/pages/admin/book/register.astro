@@ -18,7 +18,13 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
         </div>
         <div id="editorial">
             <label for="">Editorial</label>
-            <input type="text" />
+            <select name="ni" id="selecE">
+                <option value="1">Urano</option>
+                <option value="2">Planeta</option>
+                <option value="3">Montenegro</option>
+                <option value="4">THS</option>
+                <option value="5">TYP</option>
+            </select>
         </div>
 
         <div id="category">
@@ -63,6 +69,9 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
     }
     #editorial {
         grid-area: editorial;
+    }
+    #selecE {
+        grid-area: selecE;
     }
     #category {
         grid-area: category;
