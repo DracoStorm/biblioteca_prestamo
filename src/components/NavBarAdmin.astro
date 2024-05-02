@@ -40,34 +40,30 @@
                 </ul>
             </li>
             <li>
-                <li>
-                    <a id="login" href="/"
-                        ><span
-                            ><svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="icon icon-tabler icon-tabler-logout"
-                                width="28"
-                                height="28"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="#C6B8D9"
-                                fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <path
-                                    stroke="none"
-                                    d="M0 0h24v24H0z"
-                                    fill="none"></path>
-                                <path
-                                    d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"
-                                ></path>
-                                <path d="M9 12h12l-3 -3"></path>
-                                <path d="M18 15l3 -3"></path>
-                            </svg></span
-                        ></a
-                    >
-                </li>
+                <a class="section" id="login" href="/"
+                    ><span
+                        ><svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="icon icon-tabler icon-tabler-logout"
+                            width="28"
+                            height="28"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="#C6B8D9"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"
+                            ></path>
+                            <path
+                                d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"
+                            ></path>
+                            <path d="M9 12h12l-3 -3"></path>
+                            <path d="M18 15l3 -3"></path>
+                        </svg></span
+                    ></a
+                >
             </li>
         </ul>
     </div>
@@ -84,7 +80,6 @@
         --color-sombra: #464444a9; /*Sombra botón*/
         --color-rojo: #ff2234;
         --color-rojo-hover: #ca0313;
-
     }
     .header {
         position: relative;
@@ -92,16 +87,17 @@
         left: 0;
         right: 0;
         background-color: var(--color-oscuro);
-        padding: 0 8rem;
+        padding: 0 14rem 0 14rem;
         display: flex;
         align-items: center;
         z-index: 1000;
     }
     ul.nav {
         margin: 0;
+        align-items: center;
     }
     .navigation {
-        width: 100%;
+        width: 95%;
         background-color: #32253f;
         height: 4.7rem;
     }
@@ -116,11 +112,13 @@
         text-align: center;
         flex-grow: 1;
     }
+
     .header .navigation ul li a {
         font-size: 1.2rem;
         color: #c6b8d9;
         text-decoration: none;
-        padding: 1.1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
         display: block;
         transition: all 0.2s ease;
         text-align: center;
@@ -140,6 +138,7 @@
     .header .navigation ul li ul li a {
         font-size: 1.1rem;
         color: #fefefe;
+        padding: 0.8rem;
     }
     .header .navigation ul li ul li {
         width: 100%;
@@ -155,7 +154,7 @@
 
     @font-face {
         font-family: "Lora";
-        src: url('/fonts/Lora/Lora-VariableFont_wght.ttf') format('truetype');
+        src: url("/fonts/Lora/Lora-VariableFont_wght.ttf") format("truetype");
         font-weight: normal;
         font-style: normal;
         font-display: swap;
