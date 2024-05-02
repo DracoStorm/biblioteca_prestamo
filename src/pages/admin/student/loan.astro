@@ -27,7 +27,8 @@ import BookItem from "../../../components/BookItem.astro";
                 place="Central"
                 autor="Richard Wayland"
                 editorial="Ingenieros > Licenciados"
-                url="#"
+                url1="/admin/student/register"
+                url2="/admin/student/delete"
             />
         </div>
 
@@ -49,25 +50,31 @@ import BookItem from "../../../components/BookItem.astro";
                 place="Benito Juarez"
                 autor="Howard Philips Lovecraft"
                 editorial="Locura Onírica"
-                url="#"
+                url1=""
+                url2="/admin/student/delete"
             />
         </div>
         <div>
             <span>2024-07-22</span>
             <BookItem
-                icon={""}
-                icon1={`<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bookmark-plus" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#C6B8D9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                icon={`<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bookmark-plus" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#C6B8D9" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <path d="M12 17l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v5" />
                     <path d="M16 19h6" />
                     <path d="M19 16v6" />
-                  </svg>`}
+                </svg>`}
+                icon1={`<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bookmark-minus" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#C6B8D9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M12 17l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v8" />
+                    <path d="M16 19h6" />
+                </svg>`}
                 title="Learning English: Two Ways"
                 category="Idiomas"
                 place="5 de Mayo"
                 autor="Elena Herrera"
                 editorial="Lingua House"
-                url="../confirm"
+                url1="/admin/student/register"
+                url2="/admin/student/delete"
             />
         </div>
     </SearchR>

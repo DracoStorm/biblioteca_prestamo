@@ -9,10 +9,11 @@ interface Props {
     editorial: string;
     icon: string;
     icon1: string;
-    url: string;
+    url1: string;
+    url2: string;
 }
 
-const { title, category, place, autor, editorial, icon, icon1, url } =
+const { title, category, place, autor, editorial, icon, icon1, url1, url2 } =
     Astro.props;
 ---
 
@@ -22,9 +23,13 @@ const { title, category, place, autor, editorial, icon, icon1, url } =
     <div id="category">{category}</div>
     <div id="editorial">{editorial}</div>
     <div id="place">{place}</div>
-    <div id="icon">
-        <a href={url} set:html={icon} />
-        <a href={url} set:html={icon1} />
+    <div id="icon-container">
+        <div class="icon">
+            <a href={url1} set:html={icon}></a>
+        </div>
+        <div class="icon">
+            <a href={url2} set:html={icon1}></a>
+        </div>
     </div>
 </div>
 <style>
@@ -41,14 +46,13 @@ const { title, category, place, autor, editorial, icon, icon1, url } =
         color: white;
         font-style: normal;
     }
-    #icon {
-        grid-area: icon;
-        display: grid;
-        justify-content: center;
-        align-items: center;
+    #icon-container {
+        display: inline-flex;
+        padding: inherit; 
         flex-direction: column;
-        font-size: 2rem;
-    }
+        
+        align-items: center; 
+        }
     #title {
         grid-area: title;
         border-top-left-radius: 0.5rem;
