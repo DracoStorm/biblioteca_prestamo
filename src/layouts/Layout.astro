@@ -15,46 +15,97 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		</head>
+	</head>
 	<body>
 		<slot />
 	</body>
 </html>
 <style is:global>
-
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-		--color-osucro:#32253F;
-		--color-morado-medio: #443659;
-		--color-morado-claro: #8C618C;
-		--color-lila: #C6B8D9;
-		--color-salmon: #F2D0CF;
+		--primary: #32253f;
+		--secondary: #443659;
+
+		--accent-1: #8c618c;
+		--accent-2: #efefef;
+
+		--bg-1: #c6b8d9;
+		--bg-2: #f2d0cf;
+		box-sizing: border-box;
 	}
+
+	@font-face {
+		font-family: "Lora";
+		src: url("/fonts/Lora/Lora-VariableFont_wght.ttf");
+		font-weight: normal;
+		font-style: normal;
+		font-display: block;
+	}
+
+	@font-face {
+		font-family: "Arvo";
+		src: url("/fonts/Arvo/Arvo-Regular.ttf") format("truetype");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: "Outfit";
+		src: url("/fonts/Outfit/Outfit-VariableFont_wght.ttf")
+			format("truetype");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: "Rubik";
+		src: url("/fonts/Rubik/Rubik-VariableFont_wght.ttf") format("truetype");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: "Montserrat";
+		src: url("/fonts/Montserrat/Montserrat-VariableFont_wght.ttf")
+			format("truetype");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: "Dosis";
+		src: url("/fonts/Dosis/Dosis-VariableFont_wght.ttf") format("truetype");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: "Bitter";
+		src: url("/fonts/Bitter/Bitter-VariableFont_wght.ttf") format("trutype");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+
 	html {
-		font-family: CodeNewRoman Nerd Font;
+		font-family: Lora;
 		background: whitesmoke;
 		background-size: 224px;
 	}
 	body {
 		margin: 0;
 		padding: 0;
-		color: #fefefe;
+		color: var(--bg-1);
 		font-size: 1rem;
 		line-height: 1.6;
 		min-height: 100vh;
 		/*background: linear-gradient( #dfebf7, #296596, #071925);*/
-		background-image: url(/imagenes/backgroundE.jpg);
+		background-image: url("../Images/backgroundE.jpg");
 		background-repeat: no-repeat;
-        background-size: cover;
-        background-position: top;
+		background-size: cover;
+		background-position: top;
 	}
 	input {
 		border-radius: 2rem;
@@ -66,7 +117,13 @@ const { title } = Astro.props;
 	}
 
 	
-
+	@font-face {
+  font-family: 'Rubik';
+  src: url('/fonts/Rubik/Rubik-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 @font-face {
   font-family: 'Montserrat';
@@ -76,8 +133,16 @@ const { title } = Astro.props;
   font-display: swap;
 }
 
-h1, h2, label{
+h1, label{
 	font-family: 'Montserrat', sans-serif;
+}
+
+@font-face {
+  font-family: 'Dosis';
+  src: url('/fonts/Dosis/Dosis-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 
@@ -90,7 +155,7 @@ h1, h2, label{
 }
 
 #btns{
-	font-family: 'Bitter';
+	font-family: 'Bitter', sans-serif;
 }
 
 @font-face {

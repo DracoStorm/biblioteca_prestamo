@@ -25,22 +25,14 @@ const { title, category, place, autor, editorial, icon, icon1, url1, url2 } =
     <div id="place">{place}</div>
     <div id="icon-container">
         <div class="icon">
-            <a href={url1} set:html={icon}></a>
+            <a href={url1} set:html={icon} />
         </div>
         <div class="icon">
-            <a href={url2} set:html={icon1}></a>
+            <a href={url2} set:html={icon1} />
         </div>
     </div>
 </div>
 <style>
-    @font-face {
-        font-family: "Arvo";
-        src: url("/fonts/Arvo/Arvo-Regular.ttf") format("truetype");
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
-    }
-
     a {
         text-decoration: none;
         color: white;
@@ -48,11 +40,11 @@ const { title, category, place, autor, editorial, icon, icon1, url1, url2 } =
     }
     #icon-container {
         display: inline-flex;
-        padding: inherit; 
+        padding: inherit;
         flex-direction: column;
-        
-        align-items: center; 
-        }
+
+        align-items: center;
+    }
     #title {
         grid-area: title;
         border-top-left-radius: 0.5rem;

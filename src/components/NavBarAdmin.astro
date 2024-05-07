@@ -2,164 +2,139 @@
 
 ---
 
-<div class="header">
-    <div class="navigation">
-        <ul class="nav">
-            <li>
-                <a class="seccion" href="#">Libro</a>
-                <ul class="menu">
-                    <li>
-                        <a href="/admin/book/register">Registrar libro</a>
-                    </li>
+<header>
+    <nav>
+        <li class="menu">
+            <div><a class="seccion" href="#">Libro</a></div>
+            <ul>
+                <li>
+                    <a href="/admin/book/register">Registrar libro</a>
+                </li>
 
-                    <li><a href="/admin/book/update">Actualizar libro</a></li>
+                <li><a href="/admin/book/update">Actualizar libro</a></li>
 
-                    <li><a href="/admin/book/search">Buscar libro</a></li>
-                    <li><a href="/admin/book/delete">Eliminar libro</a></li>
-                </ul>
-            </li>
+                <li><a href="/admin/book/search">Buscar libro</a></li>
+                <li><a href="/admin/book/delete">Eliminar libro</a></li>
+            </ul>
+        </li>
 
-            <li>
-                <a class="seccion" href="#">Estudiante</a>
-                <ul class="menu">
-                    <li>
-                        <a href="/admin/student/register"
-                            >Registrar estudiante</a
-                        >
-                    </li>
-                    <li>
-                        <a href="/admin/student/update">Actualizar estudiante</a
-                        >
-                    </li>
-                    <li>
-                        <a href="/admin/student/search">Buscar estudiante</a>
-                    </li>
-                    <li>
-                        <a href="/admin/student/delete">Eliminar estudiante</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a class="section" id="login" href="/"
-                    ><span
-                        ><svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="icon icon-tabler icon-tabler-logout"
-                            width="28"
-                            height="28"
-                            viewBox="0 0 24 24"
-                            stroke-width="1.5"
-                            stroke="#C6B8D9"
-                            fill="none"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"
-                            ></path>
-                            <path
-                                d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"
-                            ></path>
-                            <path d="M9 12h12l-3 -3"></path>
-                            <path d="M18 15l3 -3"></path>
-                        </svg></span
-                    ></a
-                >
-            </li>
-        </ul>
-    </div>
-</div>
+        <li class="menu">
+            <div><a href="#">Estudiante</a></div>
+            <ul>
+                <li>
+                    <a href="/admin/student/register">Registrar estudiante</a>
+                </li>
+                <li>
+                    <a href="/admin/student/update">Actualizar estudiante</a>
+                </li>
+                <li>
+                    <a href="/admin/student/search">Buscar estudiante</a>
+                </li>
+                <li>
+                    <a href="/admin/student/delete">Eliminar estudiante</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a class="section" id="login" href="/"
+                ><span
+                    ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="icon icon-tabler icon-tabler-logout"
+                        width="28"
+                        height="28"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="#C6B8D9"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"
+                        ></path>
+                        <path
+                            d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"
+                        ></path>
+                        <path d="M9 12h12l-3 -3"></path>
+                        <path d="M18 15l3 -3"></path>
+                    </svg></span
+                ></a
+            >
+        </li>
+    </nav>
+</header>
 
 <style>
-    :root {
-        --color-oscuro: #32253f;
-        --color-morado-medio: #443659; /*Componentes*/
-        --color-morado-medio: #44365997; /*Componentes degradado*/
-        --color-morado-claro: #8c618c; /*Botones*/
-        --color-lila: #c6b8d9;
-        --color-salmon: #f2d0cf;
-        --color-sombra: #464444a9; /*Sombra botón*/
-        --color-rojo: #ff2234;
-        --color-rojo-hover: #ca0313;
-    }
-    .header {
+    header {
         position: relative;
         top: 0;
         left: 0;
         right: 0;
-        background-color: var(--color-oscuro);
+        background-color: var(--primary);
         padding: 0 14rem 0 14rem;
         display: flex;
-        align-items: center;
+        justify-content: center;
         z-index: 1000;
+        margin: auto;
+        height: 4rem;
     }
-    ul.nav {
-        margin: 0;
-        align-items: center;
-    }
-    .navigation {
-        width: 95%;
-        background-color: #32253f;
-        height: 4.7rem;
-    }
-    .navigation ul {
-        list-style: none;
+    nav {
         display: flex;
-        padding: 0;
+        margin: 0;
+        justify-items: center;
+        width: 95%;
     }
-    .header .navigation ul li {
-        float: left;
+    ul {
         position: relative;
-        text-align: center;
-        flex-grow: 1;
-    }
-
-    .header .navigation ul li a {
-        font-size: 1.2rem;
-        color: #c6b8d9;
-        text-decoration: none;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        display: block;
-        transition: all 0.2s ease;
-        text-align: center;
-    }
-    .header .navigation ul li a:hover {
-        background-color: var(--color-morado-medio);
-        font-size: 1.4rem;
-    }
-
-    .header .navigation ul li ul {
-        position: absolute;
-        right: 0;
-        background-color: var(--color-morado-claro);
-        display: none;
-        align-items: center;
-    }
-    .header .navigation ul li ul li a {
-        font-size: 1.1rem;
-        color: #fefefe;
-        padding: 0.8rem;
-    }
-    .header .navigation ul li ul li {
-        width: 100%;
-    }
-
-    .header .navigation ul li:hover > ul {
-        display: initial;
+        margin: 0;
+        padding: 0;
+        float: left;
         flex-direction: column;
+        align-items: center;
+        background-color: var(--primary);
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.322);
+        visibility: hidden;
+    }
+    div {
+        min-height: 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     .menu {
-        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.322);
-    }
-
-    @font-face {
-        font-family: "Lora";
-        src: url("/fonts/Lora/Lora-VariableFont_wght.ttf") format("truetype");
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
+        display: flex;
     }
     li {
         font-family: "Lora";
+        list-style: none;
+        height: 4rem;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: space-around;
+        flex-grow: 1;
+        color: var(--bg-1);
+    }
+
+    a {
+        font-size: 1.2rem;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    @keyframes navhov {
+        to {
+            /* transform: scale(1.01); */
+            background-color: var(--accent-1);
+            color: #fff;
+        }
+    }
+
+    li:hover {
+        animation: navhov 0.2s ease-in-out 0.1s both;
+    }
+
+    li:hover > ul {
+        visibility: visible;
     }
 </style>

@@ -9,19 +9,28 @@ const { filter } = Astro.props;
 <input type="button" value={filter} />
 
 <style>
-
+    
+    @font-face {
+  font-family: 'Outfit';
+  src: url('/fonts/Outfit/Outfit-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
     input {
         background-color: #8C618C;
         color: #fefefe;
-        font-family: 'Bitter';
+        font-family: 'Outfit', sans-serif;
         font-size: 0.9rem;
         font-weight: bold;
         padding: 0.2rem 1rem;
         box-shadow: 0.2rem 0.2rem 1rem #0005;
+        border: #0000 solid 0.2rem;
     }
-    input:focus{
-        background-color: #f2d0cf;
-        color: #000;
+    input:focus {
+        background-color: #0000;
+        color: var(--primary);
+        border: var(--primary) solid 0.2rem;
     }
 </style>
