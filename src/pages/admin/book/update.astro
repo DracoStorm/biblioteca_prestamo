@@ -18,12 +18,26 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
         </div>
         <div id="editorial">
             <label for="">Editorial</label>
-            <input type="text" />
+            <select name="ni" id="selecE">
+                <option value="1">Urano</option>
+                <option value="2">Planeta</option>
+                <option value="3">Montenegro</option>
+                <option value="4">THS</option>
+                <option value="5">TYP</option>
+            </select>
         </div>
 
         <div id="category">
             <label for="">Categoria</label>
-            <input type="text" />
+            <select name="c" id="selecC">
+                <option value="1">Ingeniería</option>
+                <option value="2">Idiomas</option>
+                <option value="3">Literatura Moderna</option>
+                <option value="4">Psicologia</option>
+                <option value="5">Artes</option>
+                <option value="6">Ciencias Sociales</option>
+                <option value="7">Medicina</option>
+            </select>
         </div>
 
         <div id="place">
@@ -99,7 +113,7 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
-        font-family: 'Montserrat';
+        font-family: 'Montserrat', sans-serif;
     }
     input {
         width: 100%;
@@ -127,5 +141,10 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
     }
     #btns a:hover {
         background-color: #443659;
+    }
+
+    select{
+        width: 100%;
+        border-radius: 1rem;
     }
 </style>

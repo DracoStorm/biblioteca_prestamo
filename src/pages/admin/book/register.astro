@@ -29,7 +29,15 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
 
         <div id="category">
             <label for="">Categoria</label>
-            <input type="text" />
+            <select name="c" id="selecC">
+                <option value="1">Ingeniería</option>
+                <option value="2">Idiomas</option>
+                <option value="3">Literatura Moderna</option>
+                <option value="4">Psicología</option>
+                <option value="5">Artes</option>
+                <option value="6">Ciencias Sociales</option>
+                <option value="7">Medicina</option>
+            </select>
         </div>
 
         <div id="place">
@@ -102,14 +110,14 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
             "title title autor" "editorial editorial category"
             "place place ID";
         gap: 1rem;
-        font-family: 'Bitter';
+        font-family: 'Bitter', sans-serif;
     }
     div {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
-        font-family:  'Bitter';
+        font-family:  'Bitter', sans-serif
     }
     input {
         width: 100%;
@@ -137,5 +145,9 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
     }
     #btns a:hover {
         background-color: #443659;
+    }
+    select{
+        width: 100%;
+        border-radius: 1rem;
     }
 </style>
