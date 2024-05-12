@@ -8,13 +8,25 @@
             <div><a class="seccion" href="#">Libro</a></div>
             <ul>
                 <li>
-                    <a href="/admin/book/register">Registrar libro</a>
+                    <div>
+                        <a href="/admin/book/register">Registrar libro</a>
+                    </div>
                 </li>
 
-                <li><a href="/admin/book/update">Actualizar libro</a></li>
+                <li>
+                    <div><a href="/admin/book/update">Actualizar libro</a></div>
+                </li>
 
-                <li><a href="/admin/book/search">Buscar libro</a></li>
-                <li><a href="/admin/book/delete">Eliminar libro</a></li>
+                <li>
+                    <div>
+                        <a href="/admin/book/search">Buscar libro</a>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <a href="/admin/book/delete">Eliminar libro</a>
+                    </div>
+                </li>
             </ul>
         </li>
 
@@ -22,44 +34,57 @@
             <div><a href="#">Estudiante</a></div>
             <ul>
                 <li>
-                    <a href="/admin/student/register">Registrar estudiante</a>
+                    <div>
+                        <a href="/admin/student/register"
+                            >Registrar estudiante</a
+                        >
+                    </div>
                 </li>
                 <li>
-                    <a href="/admin/student/update">Actualizar estudiante</a>
+                    <div>
+                        <a href="/admin/student/update">Actualizar estudiante</a
+                        >
+                    </div>
                 </li>
                 <li>
-                    <a href="/admin/student/search">Buscar estudiante</a>
+                    <div>
+                        <a href="/admin/student/search">Buscar estudiante</a>
+                    </div>
                 </li>
                 <li>
-                    <a href="/admin/student/delete">Eliminar estudiante</a>
+                    <div>
+                        <a href="/admin/student/delete">Eliminar estudiante</a>
+                    </div>
                 </li>
             </ul>
         </li>
         <li>
-            <a class="section" id="login" href="/"
-                ><span
-                    ><svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="icon icon-tabler icon-tabler-logout"
-                        width="28"
-                        height="28"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="#fefefe"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"
-                        ></path>
-                        <path
-                            d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"
-                        ></path>
-                        <path d="M9 12h12l-3 -3"></path>
-                        <path d="M18 15l3 -3"></path>
-                    </svg></span
-                ></a
-            >
+            <div>
+                <a class="section" id="login" href="/"
+                    ><span
+                        ><svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="icon icon-tabler icon-tabler-logout"
+                            width="28"
+                            height="28"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="#fefefe"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"
+                            ></path>
+                            <path
+                                d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"
+                            ></path>
+                            <path d="M9 12h12l-3 -3"></path>
+                            <path d="M18 15l3 -3"></path>
+                        </svg></span
+                    ></a
+                >
+            </div>
         </li>
     </nav>
 </header>
@@ -94,7 +119,6 @@
         background-color: var(--primary);
         box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.322);
         visibility: hidden;
-        
     }
     div {
         min-height: 4rem;
@@ -102,17 +126,14 @@
         flex-direction: column;
         justify-content: center;
     }
-    .menu {
-        display: flex;
-    }
     li {
-        font-family: "Lora",sans-serif;
+        font-family: "Lora", sans-serif;
         list-style: none;
         height: 4rem;
         display: flex;
         flex-direction: column;
         text-align: center;
-        justify-content: space-around;
+        /* justify-content: center; */
         flex-grow: 1;
     }
 
@@ -120,6 +141,7 @@
         font-size: 1.2rem;
         text-decoration: none;
         color: #fefefe;
+        line-height: 1reme;
     }
 
     @keyframes navhov {
