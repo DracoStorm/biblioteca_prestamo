@@ -4,13 +4,9 @@ export type Student = {
     first_name: string;
     last_name: string;
     e_mail: string;
-    loans_id: number;
 }
 export type StudentLoans = {
-    id: number;
-    loan_0: Loan;
-    loan_1: Loan;
-    loan_2: Loan;
+    loans: Loan[]
 }
 
 export type Loan = {
@@ -25,11 +21,19 @@ export type Book = {
     id: number;
     title: string;
     author: string;
-    category: Category;
-    editorial: Category;
+    category: SimpleKey;
+    editorial: SimpleKey;
 }
 
-export type Category = {
+export type SimpleKey = {
     id: number;
     name: string;
+}
+
+
+
+export type Sesion = {
+    register: number,
+    first_name: string,
+    last_name: string
 }

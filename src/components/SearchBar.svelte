@@ -1,8 +1,4 @@
----
-
----
-
-<form action="service.js" id="search">
+<form id="search">
     <div id="search-container">
         <label for="search-box"
             ><svg

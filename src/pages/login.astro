@@ -1,88 +1,43 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import LoginForm from "../components/LoginForm.svelte";
+import { validateSesion } from "../API/sesion";
+
+const request = Astro.request;
+
+if (request.method == "POST") {
+    const querystr = await request.text();
+    const data = new URLSearchParams(querystr);
+    const register = data.get("register");
+    const full_name = data
+        .get("full-name")
+        ?.split(" ")
+        .filter((word) => word !== "");
+    let ok = false;
+    if (register && full_name) {
+        await validateSesion(register, full_name[0], full_name[1])
+            .then((response) => {
+                if (!response.ok) return;
+                return response.headers;
+            })
+            .then((headers) => {
+                if (headers) {
+                    const token = headers.get("token");
+                    if (token) {
+                        Astro.cookies.set("token", token);
+                        ok = true;
+                    }
+                }
+            });
+        if (parseInt(register) <= 199000000 && ok) {
+            return Astro.redirect("/admin/loan/register");
+        } else if (ok) {
+            return Astro.redirect("/student/loan");
+        }
+    }
+}
 ---
 
 <Layout title="login">
-    <form action="login.js" method="post">
-        <div>
-            <h1>Bibliotecas BUAP</h1>
-            <h2>Iniciar Sesión</h2>
-        </div>
-
-        <label for="Register">Matrícula</label>
-        <input type="text" name="Register" id="res" />
-        <label for="ResumeName">Nombre</label>
-        <input type="text" name="ResumeName" id="resumeN" />
-        <input type="button" value="Iniciar Sesión" id="login" />
-    </form>
+    <LoginForm client:only="svelte" />
 </Layout>
-
-<style>
-
-    body{
-        /*background-image: url(/imagenes/foto2.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: top;*/
-        background-color: var(--bg-1);
-
-    }
-    @media (width <= 1000px) {
-        form {
-            width: 80%;
-        }
-    }
-
-    @media (width > 1000px) {
-        form {
-            width: 30%;
-        }
-    }
-    form {
-        color: #ffffff;
-        position: absolute;
-        top: 15%;
-        left: 30%;
-        width: 40%;
-        height: 50%;
-        padding: 4rem 1rem;
-        border-radius: 1rem;
-        display: flex;
-        background: #44365997;
-        justify-content: space-around;
-        flex-direction: column;
-        align-items: center;
-        box-shadow: 0.25rem 0.25rem 2rem #C6B8D9;
-    }
-
-    h1,
-    h2 {
-        text-align: center;
-    }
-
-    #login {
-        background-color: #593954;
-        width: 9rem;
-        color: #ffffff;/*Botón*/
-        font-size: 0.9rem;
-        font-weight: bold;
-        padding: 0.2rem 1rem;
-        box-shadow: 0.2rem 0.2rem 1rem #0005;
-        margin-top: 1rem;
-    }
-
-    #res,
-    #resumeN {
-        padding: 0.2rem;
-    }
-
-    label {
-        font-size: 18px;
-    }
-    input {
-        background-color: #dfd3d38e;
-    }
-    #login:hover {
-        background-color: #443659;
-    }
-</style>

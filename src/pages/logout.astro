@@ -1,0 +1,10 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+if (Astro.cookies.has("token")) Astro.cookies.delete("token");
+return Astro.redirect("/");
+---
+
+<Layout title="logout">
+    <h1>Logout</h1>
+</Layout>

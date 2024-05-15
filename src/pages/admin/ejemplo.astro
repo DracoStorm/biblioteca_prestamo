@@ -2,11 +2,15 @@
 import Layout from "../../layouts/Layout.astro";
 import Example from "../../components/Example.svelte";
 import NavBarAdmin from "../../components/NavBarAdmin.astro";
+
+Astro.cookies.set("example", "hols");
+
+const juan = "Juan";
 ---
 
 <Layout title="ejemplo">
     <NavBarAdmin />
     <div>
-        <Example client:only />
+        <Example text={juan} client:load />
     </div>
 </Layout>

@@ -1,4 +1,5 @@
 <script lang="ts">
+    export let text;
     const catsPromise = async () => {
         const res = await fetch("http://192.168.100.61:8000/API/u/category/");
         const data = (await res.json()) as [import("../types/api").Category];
@@ -12,7 +13,7 @@
     <div class="cats">
         <span class="item"
             ><span class="id"> Id </span>
-            <span class="name"> Name </span>
+            <span class="name"> {text} </span>
         </span>
         {#await catsp then data}
             {#each data.slice(20, 40) as c}
