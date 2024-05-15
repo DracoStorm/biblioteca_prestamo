@@ -1,11 +1,11 @@
 <script lang="ts">
     import { current_id_loan } from "../stores/store";
 
-    export let title: String;
-    export let author: String;
-    export let category: String;
-    export let editorial: String;
-    export let devolution_date: String;
+    export let title: string;
+    export let author: string;
+    export let category: string;
+    export let editorial: string;
+    export let devolution_date: string;
     export let renew_tries: number;
     export let id_loan: number;
 

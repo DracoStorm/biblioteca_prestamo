@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Nav from "../../components/NavBarStudent.astro";
 import SearchR from "../../components/SearchBox.astro";
-import SLoans from "../../components/SLoans.svelte";
+import LoanItem from "../../components/LoanItem.svelte";
 import { GET, POST, STUDENT_LOAN } from "../../API/API.json";
 import type { StudentLoans } from "../../types/api";
 
@@ -42,10 +42,29 @@ if (token) {
 } else return Astro.redirect("/");
 ---
 
+<script>
+    if ({ loan_error }) {
+        alert(loan_error);
+    }
+</script>
+
 <Layout title="prestamo">
     <Nav />
     <SearchR>
-        <SLoans s_loans={loans} client:load />
+        {
+            loans?.loans.map((loan) => (
+                <LoanItem
+                    id_loan={loan.id}
+                    title={loan.book.title}
+                    author={loan.book.author}
+                    category={loan.book.category.name}
+                    editorial={loan.book.editorial.name}
+                    devolution_date={loan.devolution_date.toString()}
+                    renew_tries={loan.renew_tries}
+                />
+            ))
+        }
+        <!-- <SLoans s_loans={loans} client:load /> -->
     </SearchR>
 </Layout>
 
