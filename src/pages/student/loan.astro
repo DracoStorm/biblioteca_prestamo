@@ -3,23 +3,49 @@ import Layout from "../../layouts/Layout.astro";
 import Nav from "../../components/NavBarStudent.astro";
 import SearchR from "../../components/SearchBox.astro";
 import SLoans from "../../components/SLoans.svelte";
-import { GET, STUDENT_LOAN } from "../../API/API.json";
+import { GET, POST, STUDENT_LOAN } from "../../API/API.json";
 import type { StudentLoans } from "../../types/api";
 
 let loans: StudentLoans | undefined = undefined;
+// Checa si existe la sesión
 const token = Astro.cookies.get("token");
+const request = Astro.request;
+let loan_error: string | undefined;
 if (token) {
-    loans = (await GET(STUDENT_LOAN, token.value)) as StudentLoans;
+    if (request.method == "POST") {
+        try {
+            const formData = await Astro.request.formData();
+            //convierte a string para la función parseInt
+            const id_loan = formData.get("id_loan")?.toString();
+            if (id_loan) {
+                await POST(
+                    //lo convierte a inr solo cuando existe
+                    { id_loan: parseInt(id_loan) },
+                    STUDENT_LOAN,
+                    token.value,
+                );
+            }
+        } catch {
+            loan_error = "No se pudo renovar el prestamo";
+        }
+    } else {
+        //evitamos realizar doble consulta, esta NO RENUEVA LOS ESTADOS
+        try {
+            // Si la sesión es valida
+            loans = (await GET(STUDENT_LOAN, token.value)) as StudentLoans;
+        } catch (e) {
+            // si no regresa al login
+            console.log(e);
+            return Astro.redirect("/");
+        }
+    }
 } else return Astro.redirect("/");
-if (Astro.request.method == "POST") {
-    console.log(await Astro.request.text());
-}
 ---
 
 <Layout title="prestamo">
     <Nav />
     <SearchR>
-        <SLoans s_loans={loans} client:visible />
+        <SLoans s_loans={loans} client:load />
     </SearchR>
 </Layout>
 

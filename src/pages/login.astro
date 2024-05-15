@@ -6,16 +6,17 @@ import { validateSesion } from "../API/sesion";
 const request = Astro.request;
 
 if (request.method == "POST") {
-    const querystr = await request.text();
-    const data = new URLSearchParams(querystr);
-    const register = data.get("register");
-    const full_name = data
-        .get("full-name")
-        ?.split(" ")
+    const formData = await Astro.request.formData();
+    const register = formData.get("register");
+    const full_name = formData
+        ?.get("full-name")
+        ?.toString()
+        .split(" ")
         .filter((word) => word !== "");
     let ok = false;
+    console.log(register, full_name);
     if (register && full_name) {
-        await validateSesion(register, full_name[0], full_name[1])
+        await validateSesion(register.toString(), full_name[0], full_name[1])
             .then((response) => {
                 if (!response.ok) return;
                 return response.headers;
@@ -29,7 +30,7 @@ if (request.method == "POST") {
                     }
                 }
             });
-        if (parseInt(register) <= 199000000 && ok) {
+        if (parseInt(register.toString()) <= 199000000 && ok) {
             return Astro.redirect("/admin/loan/register");
         } else if (ok) {
             return Astro.redirect("/student/loan");

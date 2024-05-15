@@ -10,7 +10,21 @@
     export let id_loan: number;
 
     function renew_handler() {
-        current_id_loan.set(id_loan);
+        if (renew_tries < 2) {
+            current_id_loan.set(id_loan);
+            const formData = new FormData() as FormData;
+            formData.append("id_loan", $current_id_loan.toString());
+            try {
+                fetch("http://localhost:4321/student/loan/", {
+                    method: "POST",
+                    body: formData,
+                });
+                // recarga la página (necesario para observar los cambios, es lo que funciona)
+                location.reload();
+            } catch (e) {
+                console.error(e);
+            }
+        }
     }
 </script>
 
@@ -85,6 +99,7 @@
         font-style: oblique;
         border-radius: 0.3rem;
         box-shadow: 0.2rem 0.2rem 1rem #0005;
+        place-self: end;
     }
     #title {
         grid-area: title;
