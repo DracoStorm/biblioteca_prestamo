@@ -1,7 +1,7 @@
 <script lang="ts">
-    export let text;
+    /*export let text;*/
     const catsPromise = async () => {
-        const res = await fetch("http://192.168.100.61:8000/API/u/category/");
+        const res = await fetch("http://127.0.0.1:8000/API/u/category/");
         const data = (await res.json()) as [import("../types/api").Category];
         return data;
     };
@@ -13,10 +13,10 @@
     <div class="cats">
         <span class="item"
             ><span class="id"> Id </span>
-            <span class="name"> {text} </span>
+            <span class="name"> Categoria </span>
         </span>
         {#await catsp then data}
-            {#each data.slice(20, 40) as c}
+            {#each data.slice(0, 40) as c}
                 <span class="item"
                     ><span class="id"> {c.id} </span>
                     <span class="name"> {c.name} </span>

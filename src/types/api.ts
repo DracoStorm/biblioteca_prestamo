@@ -30,10 +30,13 @@ export type SimpleKey = {
     name: string;
 }
 
-
-
 export type Sesion = {
     register: number,
     first_name: string,
     last_name: string
+}
+
+export interface Category {
+    id: number;
+    name: string;
 }
