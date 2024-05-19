@@ -1,5 +1,6 @@
 <script lang="ts">
     import { createEventDispatcher } from 'svelte';
+    import { POST, ADMIN_STUDENT } from '../API/API.json';
 
     export let register: number;
     export let first_name: string;
@@ -7,11 +8,63 @@
     export let e_mail: string;
 
     const dispatch = createEventDispatcher();
+    let error: string | null = null;
 
-    function handleSubmit(event: Event) {
+    interface ApiResponse {
+        success: boolean;
+        student?: {
+            register: number;
+            first_name: string;
+            last_name: string;
+            e_mail: string;
+        };
+    }
+
+    async function handleSubmit(event: Event) {
         event.preventDefault();
         const formData = new FormData(event.target as HTMLFormElement);
-        dispatch('submit', formData);
+        const studentData = {
+            register: formData.get('register')?.toString(),
+            first_name: formData.get('first_name')?.toString(),
+            last_name: formData.get('last_name')?.toString(),
+            e_mail: formData.get('e_mail')?.toString()
+        };
+
+        console.log('Student Data:', studentData);
+
+        if (!studentData.register || !studentData.first_name || !studentData.last_name || !studentData.e_mail) {
+            error = 'Todos los campos son obligatorios';
+            return;
+        }
+
+        try {
+            const token = document.cookie.split('; ').find(row => row.startsWith('token='))?.split('=')[1];
+            if (!token) {
+                error = 'Token no encontrado';
+                return;
+            }
+
+            console.log('Token:', token);
+
+            const response = await POST(studentData, ADMIN_STUDENT, token);
+            const result: ApiResponse = await response.json();
+
+            console.log('Response:', result);
+
+            if (result.success) {
+                dispatch('studentCreated', { student: result.student });
+                error = null;
+                register = 0;
+                first_name = '';
+                last_name = '';
+                e_mail = '';
+            } else {
+                error = 'No se pudo crear el estudiante';
+            }
+        } catch (e) {
+            console.error('Error:', e);
+            error = 'Error al crear el estudiante';
+        }
     }
 </script>
 
@@ -28,6 +81,9 @@
     <div id="btns">
         <button type="submit" id="register">Registrar</button>
     </div>
+    {#if error}
+        <p style="color: red;">{error}</p>
+    {/if}
 </form>
 
 <style>
@@ -72,7 +128,7 @@
     label {
         margin-top: 10px;
     }
-    button{
+    button {
         box-shadow: 0.5rem 0.5rem 2rem #0004;
         border: none;
     }
