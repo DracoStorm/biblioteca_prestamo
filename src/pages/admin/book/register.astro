@@ -1,153 +1,57 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import NavAdmin from "../../../components/NavBarAdmin.astro";
+import RegisterBook from "../../../components/RegisterBook.svelte";
+import { GET, POST, ADMIN_STUDENT, ADMIN_BOOK } from "../../../API/API.json";
+import type { Book } from "../../../types/api";
+
+let RegisterS: Book | undefined;
+let creation_error: string | undefined;
+/*
+const token = Astro.cookies.get("token");
+const request = Astro.request;
+
+if (token) {
+    if (request.method === "POST") {
+        try {
+            const formData = await Astro.request.formData();
+            const id = formData.get("id")?.toString();
+            const title = formData.get("title")?.toString();
+            const author = formData.get("author")?.toString();
+            const category = formData.get("category")?.toString();
+            const editorial = formData.get("editorial")?.toString();
+            if (id && title && author && category && editorial) {
+                await POST(
+                    {
+                        id: parseInt(id),
+                        title,
+                        author,
+                        category: parseInt(category),
+                        editorial: parseInt(editorial),
+                    },
+                    ADMIN_BOOK,
+                    token.value,
+                );
+            }
+        } catch (e) {
+            creation_error = "No se pudo crear el registro del libro";
+        }
+    } else {
+        try {
+            // Si la sesión es válida
+            RegisterS = (await GET(ADMIN_BOOK, token.value)) as Book;
+        } catch (e) {
+            // Si no, regresa al login
+            console.log(e);
+            return Astro.redirect("/");
+        }
+    }
+} else {
+    return Astro.redirect("/");
+}*/
 ---
 
 <Layout title="Registrar libro">
     <NavAdmin />
-    <form action="mod">
-        <div id="hs"><h1>Registrar Libro</h1></div>
-
-        <div id="title">
-            <label for="">Título</label>
-            <input type="text" />
-        </div>
-        <div id="autor">
-            <label for="">Autor</label>
-            <input type="text" />
-        </div>
-        <div id="editorial">
-            <label for="">Editorial</label>
-            <select name="ni" id="selecE">
-                <option value="1">Urano</option>
-                <option value="2">Planeta</option>
-                <option value="3">Montenegro</option>
-                <option value="4">THS</option>
-                <option value="5">TYP</option>
-            </select>
-        </div>
-
-        <div id="category">
-            <label for="">Categoria</label>
-            <select name="c" id="selecC">
-                <option value="1">Ingeniería</option>
-                <option value="2">Idiomas</option>
-                <option value="3">Literatura Moderna</option>
-                <option value="4">Psicología</option>
-                <option value="5">Artes</option>
-                <option value="6">Ciencias Sociales</option>
-                <option value="7">Medicina</option>
-            </select>
-        </div>
-
-        <div id="place">
-            <label for="">Lugar</label>
-            <input type="text" />
-        </div>
-        <div id="ID">
-            <label for="">ID</label>
-            <input type="text" />
-        </div>
-        <div id="btns">
-            <a href="confirmacion" id="mod">Registrar</a>
-        </div>
-    </form>
+    <div><RegisterBook client:load /></div>
 </Layout>
-
-<style>
-    @media (width <= 1000px) {
-        form {
-            width: 80%;
-        }
-    }
-
-    @media (width > 1000px) {
-        form {
-            width: 30%;
-        }
-    }
-    #autor {
-        grid-area: autor;
-    }
-    #title {
-        grid-area: title;
-    }
-    #place {
-        grid-area: place;
-    }
-    #editorial {
-        grid-area: editorial;
-    }
-    #selecE {
-        grid-area: selecE;
-    }
-    #category {
-        grid-area: category;
-    }
-    #ID {
-        grid-area: ID;
-    }
-
-    #hs {
-        grid-area: hs;
-    }
-    form {
-        position: absolute;
-        top: 15%;
-        left: 30%;
-        width: 40%;
-        height: 50%;
-        padding: 4rem 1rem;
-        border-radius: 1rem;
-        background-color: #44365997;
-        box-shadow: 0.5rem 0.5rem 2rem #0004;
-        color: #fefefe;
-        display: grid;
-        grid-template-rows: repeat(4, 1fr);
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas:
-            "hs hs hs"
-            "title title autor" "editorial editorial category"
-            "place place ID";
-        gap: 1rem;
-        font-family: 'Bitter', sans-serif;
-    }
-    div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        font-family:  'Bitter', sans-serif
-    }
-    input {
-        width: 100%;
-    }
-    h1 {
-        text-align: center;
-    }
-    #mod {
-        background-color: #8C618C;
-        width: 9rem;
-        color: #fefefe;
-        font-size: 0.9rem;
-        font-weight: bold;
-        padding: 0.2rem 1rem;
-        box-shadow: 0.2rem 0.2rem 1rem #464444;
-        margin: auto;
-        border-radius: 0.8rem;
-        text-align: center;
-        text-decoration: none;
-    }
-    #btns {
-        position: relative;
-        left: 11.5rem;
-        margin-top: 2rem;
-    }
-    #btns a:hover {
-        background-color: #443659;
-    }
-    select{
-        width: 100%;
-        border-radius: 1rem;
-    }
-</style>
