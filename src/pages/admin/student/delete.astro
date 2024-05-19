@@ -5,10 +5,11 @@ import DeleteStudent from "../../../components/DeleteStudent.svelte";
 import { GET, DELETE, ADMIN_STUDENT } from "../../../API/API.json";
 import type { Student } from "../../../types/api";
 
+
 // Variables para manejar datos de estudiantes
 let RegisterS: Student | undefined;
 let creation_error: string | undefined;
-
+/*
 // Checa si existe la sesión
 const token = Astro.cookies.get("token");
 const request = Astro.request;
@@ -37,7 +38,7 @@ if (token) {
     }
 } else {
     return Astro.redirect("/");
-}
+}*/
 ---
 
 <Layout title="Modificar Estudiante">
