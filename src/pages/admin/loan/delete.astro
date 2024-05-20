@@ -1,70 +1,48 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import NavAdmin from "../../../components/NavBarAdmin.astro";
+import type { Loan } from "../../../types/api";
+import DeleteLoan from "../../../components/DeleteLoan.svelte";
+
+
+// Variables para manejar datos de estudiantes
+let RegisterL: Loan | undefined;
+let creation_error: string | undefined;
+/*
+// Checa si existe la sesión
+const token = Astro.cookies.get("token");
+const request = Astro.request;
+
+if (token) {
+    if (request.method === "POST") {
+        try {
+            const formData = await Astro.request.formData();
+            const register = formData.get("register")?.toString();
+            
+            if (register) {
+                await DELETE({ register: parseInt(register) }, ADMIN_STUDENT, token.value);
+            }
+        } catch (e) {
+            creation_error = "No se pudo crear el estudiante";
+        }
+    } else {
+        try {
+            // Si la sesión es válida
+            RegisterS = (await GET(ADMIN_STUDENT, token.value)) as Student;
+        } catch (e) {
+            // Si no, regresa al login
+            console.log(e);
+            return Astro.redirect("/");
+        }
+    }
+} else {
+    return Astro.redirect("/");
+}*/
 ---
 
 <Layout title="modificar prestamo">
     <NavAdmin />
-    <form action="mod">
-        <div id="hs"><h1>Eliminar préstamo</h1></div>
-
-        <div id="id">
-            <label for="">ID</label>
-            <input type="text" />
-        </div>
-        <br>
-        <div id="btns">
-            <a href="/admin/confirm" id="mod">Eliminar</a>
-        </div>
-    </form>
+    <DeleteLoan/>
+    {creation_error && <p style="color: red;">{creation_error}</p>}
 </Layout>
 
-<style>
-    
-    form {
-        position: absolute;
-        top: 15%;
-        left: 30%;
-        width: 40%;
-        height: 50%;
-        padding: 4rem 1rem;
-        border-radius: 1rem;
-        background-color: #44365997;
-        box-shadow: 0.5rem 0.5rem 2rem #0004;
-        gap: 1rem;
-        color: #fefefe;
-    }
-    div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-    }
-    input {
-        width: 50%;
-        padding: 5px;
-        text-align: center;
-    }
-    h1 {
-        text-align: center;
-    }
-    #mod {
-        background-color: #ff2234;
-        width: 9rem;
-        color: #fefefe;
-        font-size: 0.9rem;
-        font-weight: bold;
-        padding: 0.2rem 1rem;
-        box-shadow: 0.2rem 0.2rem 1rem #464444;
-        margin: auto;
-        border-radius: 0.8rem;
-        text-align: center;
-        text-decoration: none;
-    }
-    #btns {
-        margin: 2rem;
-    }
-    #btns a:hover {
-        background-color: #ca0313;
-    }
-</style>

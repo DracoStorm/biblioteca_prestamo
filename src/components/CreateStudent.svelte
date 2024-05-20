@@ -33,10 +33,10 @@
 <style>
     form {
         position: absolute;
-        top: 25%;
+        top: 20%;
         left: 30%;
         width: 40%;
-        height: 40%;
+        height: 50%;
         padding: 4rem 1rem;
         border-radius: 1rem;
         display: flex;

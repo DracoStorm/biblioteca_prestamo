@@ -1,10 +1,7 @@
 <script lang="ts">
     import { createEventDispatcher } from 'svelte';
 
-    export let register: number;
-    export let first_name: string;
-    export let last_name: string;
-    export let e_mail: string;
+    export let id: number;
 
     const dispatch = createEventDispatcher();
 
@@ -16,27 +13,32 @@
 </script>
 
 <form on:submit={handleSubmit}>
-    <h1>Actualizar Estudiante</h1>
-    <label for="first_name">Nombre</label>
-    <input type="text" name="first_name" bind:value={first_name} required />
-    <label for="last_name">Apellido</label>
-    <input type="text" name="last_name" bind:value={last_name} required />
-    <label for="register">Matrícula</label>
-    <input type="text" name="register" bind:value={register} required />
-    <label for="e_mail">Correo</label>
-    <input type="email" name="e_mail" bind:value={e_mail} required />
+    <h1>Buscar Préstamo</h1>
+    <label for="id">ID</label>
+    <input type="text" name="id" bind:value={id} required />
     <div id="btns">
-        <button type="submit" id="register">Registrar</button>
+        <button type="submit" id="buscar">Buscar</button>
     </div>
 </form>
 
 <style>
+    @media (width <= 1000px) {
+        form {
+            width: 80%;
+        }
+    }
+
+    @media (width > 1000px) {
+        form {
+            width: 30%;
+        }
+    }
     form {
         position: absolute;
-        top: 20%;
+        top: 25%;
         left: 30%;
         width: 40%;
-        height: 50%;
+        height: 40%;
         padding: 4rem 1rem;
         border-radius: 1rem;
         display: flex;
@@ -48,6 +50,7 @@
         color: #fefefe;
     }
 
+
     h1 {
         text-align: center;
     }
@@ -55,14 +58,14 @@
         margin-top: 1rem;
         box-shadow: 0.5rem 0.5rem 2rem #0004;
     }
-    #register {
+    #buscar {
         background-color: #8C618C;
         width: 9rem;
         color: #fefefe;
         font-size: 0.9rem;
         font-weight: bold;
         padding: 0.2rem 1rem;
-        box-shadow: 0.2rem 0.2rem 1rem #0004;
+        box-shadow: 0.2rem 0.2rem 1rem #464444;
         margin: auto;
         border-radius: 0.8rem;
         text-align: center;
@@ -76,8 +79,16 @@
         box-shadow: 0.5rem 0.5rem 2rem #0004;
         border: none;
     }
-    #btns button:hover {
-        box-shadow: 0.5rem 0.5rem 2rem #0004;
-        background-color: #443659;
+
+    h1 {
+        text-align: center;
     }
+    #btns {
+        margin-top: 1rem;
+        background-color: #8C618C;
+    }
+    #btns button:hover {
+        background-color: #443659;
+    } 
 </style>
+
