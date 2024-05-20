@@ -1,39 +1,16 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Nav from "../../../components/NavBarAdmin.astro";
-import SearchBar from "../../../components/SearchBar.svelte";
-import Filter from "../../../components/FilterItem.astro";
-import SearchResult from "../../../components/SearchBox.astro";
-import Student from "../../../components/StudentItem.astro";
+import SearchBar from "../../../components/SearchBarAdminStudent.svelte";
+
+// Checa si existe la sesión
+const token = Astro.cookies.get("token");
+if (token) {
+    console.log(token);
+} else return Astro.redirect("/");
 ---
 
 <Layout title="modificacion prestamo">
     <Nav />
-    <SearchBar>
-        <Filter filter="Nombre" />
-        <Filter filter="Matrícula" />
-        <Filter filter="Correo Institucional" />
-    </SearchBar>
-    <SearchResult>
-        <Student
-            name="Karla Castro Landa"
-            matricula="202212345"
-            email="karlacastrolan@alumno.buap.mx"
-        />
-        <Student
-            name="Karla Castro Landa"
-            matricula="202212345"
-            email="karlacastrolan@alumno.buap.mx"
-        />
-        <Student
-            name="Karla Castro Landa"
-            matricula="202212345"
-            email="karlacastrolan@alumno.buap.mx"
-        />
-        <Student
-            name="Karla Castro Landa"
-            matricula="202212345"
-            email="karlacastrolan@alumno.buap.mx"
-        />
-    </SearchResult>
+    <SearchBar client:load cokies={token.value} />
 </Layout>

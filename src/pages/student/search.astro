@@ -1,69 +1,17 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import NavUser from "../../components/NavBarStudent.astro";
-import Filter from "../../components/FilterItem.astro";
-import SearchBar from "../../components/SearchBar.svelte";
-import SearchResult from "../../components/SearchBox.astro";
-import BookItem from "../../components/BookItem.astro";
+import SearchBar from "../../components/SearchBarStudent.svelte";
+
+// Checa si existe la sesión
+const token = Astro.cookies.get("token");
+if (token) {
+	console.log(token);
+} else return Astro.redirect("/");
 ---
 
 <Layout title="Buscar libro">
 	<NavUser />
-	<SearchBar>
-		<Filter filter="Título" />
-		<Filter filter="Categoría" />
-		<Filter filter="Editorial" />
-		<Filter filter="Autor" />
-	</SearchBar>
-	<SearchResult>
-		<BookItem
-			icon={`<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book-2" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fefefe" fill="none" stroke-linecap="round" stroke-linejoin="round">
-			<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-			<path d="M19 4v16h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12z" />
-			<path d="M19 16h-12a2 2 0 0 0 -2 2" />
-			<path d="M9 8h6" />
-			</svg>`}
-			icon1=""
-			title="Inginiería Aeroespacial"
-			category="Ingeniería"
-			place="Central"
-			autor="Richard Wayland"
-			editorial="Ingenieros > Licenciados"
-			url1="#"
-			url2="#"
-		/>
-		<BookItem
-			icon={`<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book-2" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fefefe" fill="none" stroke-linecap="round" stroke-linejoin="round">
-			<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-			<path d="M19 4v16h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12z" />
-			<path d="M19 16h-12a2 2 0 0 0 -2 2" />
-			<path d="M9 8h6" />
-			</svg>`}
-			icon1=""
-			title="El llamado de Cthulu"
-			category="Literatura Moderna"
-			place="Benito Juarez"
-			autor="Howard Philips Lovecraft"
-			editorial="Locura Onírica"
-			url1="#"
-			url2="#"
-		/>
-		<BookItem
-			icon={`<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book-2" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fefefe" fill="none" stroke-linecap="round" stroke-linejoin="round">
-			<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-			<path d="M19 4v16h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12z" />
-			<path d="M19 16h-12a2 2 0 0 0 -2 2" />
-			<path d="M9 8h6" />
-			</svg>`}
-			icon1=""
-			title="Learning English: Two Ways"
-			category="Idiomas"
-			place="5 de Mayo"
-			autor="Elena Herrera"
-			editorial="Lingua House"
-			url1="#"
-			url2="#"
-		/>
-	</SearchResult>
+	<SearchBar client:load cokies={token.value} />
 	<footer>.</footer>
 </Layout>
