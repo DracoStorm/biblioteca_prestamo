@@ -17,7 +17,7 @@
     <label for="register">Matrícula</label>
     <input type="text" name="register" bind:value={register} required />
     <div id="btns">
-        <button type="submit" id="register">Registrar</button>
+        <button type="submit" id="register">Eliminar</button>
     </div>
 </form>
 

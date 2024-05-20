@@ -9,36 +9,11 @@ import type { Student } from "../../../types/api";
 // Variables para manejar datos de estudiantes
 let RegisterS: Student | undefined;
 let creation_error: string | undefined;
-/*
-// Checa si existe la sesión
-const token = Astro.cookies.get("token");
-const request = Astro.request;
 
-if (token) {
-    if (request.method === "POST") {
-        try {
-            const formData = await Astro.request.formData();
-            const register = formData.get("register")?.toString();
-            
-            if (register) {
-                await DELETE({ register: parseInt(register) }, ADMIN_STUDENT, token.value);
-            }
-        } catch (e) {
-            creation_error = "No se pudo crear el estudiante";
-        }
-    } else {
-        try {
-            // Si la sesión es válida
-            RegisterS = (await GET(ADMIN_STUDENT, token.value)) as Student;
-        } catch (e) {
-            // Si no, regresa al login
-            console.log(e);
-            return Astro.redirect("/");
-        }
-    }
-} else {
-    return Astro.redirect("/");
-}*/
+const token = Astro.cookies.get('token');
+if (!token) {
+    return Astro.redirect('/');
+}
 ---
 
 <Layout title="Modificar Estudiante">
