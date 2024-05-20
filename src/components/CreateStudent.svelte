@@ -47,9 +47,15 @@
             console.log('Token:', token);
 
             const response = await POST(studentData, ADMIN_STUDENT, token);
-            const result: ApiResponse = await response.json();
+            console.log('Raw Response:', response);
 
-            console.log('Response:', result);
+            if (!response.ok) {
+                error = 'Error en la solicitud al servidor';
+                return;
+            }
+
+            const result: ApiResponse = await response.json();
+            console.log('Response JSON:', result);
 
             if (result.success) {
                 dispatch('studentCreated', { student: result.student });

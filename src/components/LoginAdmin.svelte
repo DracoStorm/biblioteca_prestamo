@@ -1,30 +1,41 @@
 <script>
-    import { onMount } from 'svelte';
-    import { POST } from '../../API/API.json';
+    import { createEventDispatcher } from 'svelte';
+    import { POST, SESION } from '../../../API/API.js';
 
-    let email = '';
+    let username = '';
     let password = '';
     let error = '';
 
-    async function login() {
+    const dispatch = createEventDispatcher();
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+
         try {
-            const response = await POST('/login/admin', { email, password });
-            if (response.token) {
-                document.cookie = `token=${response.token}; path=/`;
-                window.location.href = '/admin/dashboard';
+            const response = await POST({ username, password }, SESION);
+            const data = await response.json();
+
+            if (response.ok && data.token) {
+                localStorage.setItem('adminToken', data.token);
+                dispatch('loginSuccess');
             } else {
-                error = 'Login failed';
+                error = data.message || 'Error de autenticación';
             }
-        } catch (e) {
-            error = 'Login error';
+        } catch (err) {
+            console.error(err);
+            error = 'Error de conexión';
         }
     }
 </script>
 
-<form on:submit|preventDefault={login}>
-    <input type="email" bind:value={email} placeholder="Email" required />
-    <input type="password" bind:value={password} placeholder="Password" required />
-    <button type="submit">Login</button>
+<form on:submit={handleSubmit}>
+    <label for="username">Usuario:</label>
+    <input type="text" id="username" bind:value={username} required />
+    
+    <label for="password">Contraseña:</label>
+    <input type="password" id="password" bind:value={password} required />
+    
+    <button type="submit">Iniciar Sesión</button>
     {#if error}
         <p style="color: red;">{error}</p>
     {/if}
