@@ -1,52 +1,14 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
-import NavBarAdmin from "../../../components/NavBarAdmin.astro";
-import CreateStudent from "../../../components/CreateStudent.svelte";
-import { GET, POST, ADMIN_STUDENT } from "../../../API/API.json";
-import type { Student } from "../../../types/api";
-
-// Variables para manejar datos de estudiantes
-let RegisterS: Student | undefined;
-let creation_error: string | undefined;
-/*
-// Checa si existe la sesión
-const token = Astro.cookies.get("token");
-const request = Astro.request;
-
-if (token) {
-    if (request.method === "POST") {
-        try {
-            const formData = await Astro.request.formData();
-            const register = formData.get("register")?.toString();
-            const first_name = formData.get("first_name")?.toString();
-            const last_name = formData.get("last_name")?.toString();
-            const e_mail = formData.get("e_mail")?.toString();
-            
-            if (register && first_name && last_name && e_mail) {
-                await POST({ register: parseInt(register), first_name, last_name, e_mail }, ADMIN_STUDENT, token.value);
-            }
-        } catch (e) {
-            creation_error = "No se pudo crear el estudiante";
-        }
-    } else {
-        try {
-            // Si la sesión es válida
-            RegisterS = (await GET(ADMIN_STUDENT, token.value)) as Student;
-        } catch (e) {
-            // Si no, regresa al login
-            console.log(e);
-            return Astro.redirect("/");
-        }
-    }
-} else {
-    return Astro.redirect("/");
-}*/
+import Layout from '../../../layouts/Layout.astro';
+import NavBarAdmin from '../../../components/NavBarAdmin.astro';
+import CreateStudent from '../../../components/CreateStudent.svelte';
 ---
 
 <Layout title="Registrar Estudiante">
     <NavBarAdmin />
-    <CreateStudent />
-    {creation_error && <p style="color: red;">{creation_error}</p>}
+    <div>
+        <CreateStudent />
+    </div>
 </Layout>
 
 <style>
