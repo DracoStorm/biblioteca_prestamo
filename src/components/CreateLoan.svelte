@@ -1,10 +1,11 @@
 <script lang="ts">
     import { createEventDispatcher } from 'svelte';
 
-    export let register: number;
-    export let first_name: string;
-    export let last_name: string;
-    export let e_mail: string;
+    export let id: number;
+    export let loan_date: Date;
+    export let devolution_date: Date;
+    export let renew_tries: number;
+    
 
     const dispatch = createEventDispatcher();
 
@@ -16,15 +17,16 @@
 </script>
 
 <form on:submit={handleSubmit}>
-    <h1>Actualizar Estudiante</h1>
-    <label for="first_name">Nombre</label>
-    <input type="text" name="first_name" bind:value={first_name} required />
-    <label for="last_name">Apellido</label>
-    <input type="text" name="last_name" bind:value={last_name} required />
-    <label for="register">Matrícula</label>
-    <input type="text" name="register" bind:value={register} required />
-    <label for="e_mail">Correo</label>
-    <input type="email" name="e_mail" bind:value={e_mail} required />
+    <h1>Registrar Préstamo</h1>
+    <label for="id">ID</label>
+    <input type="number" name="id" bind:value={id} required />
+    <label for="loan_date">Fecha de préstamo</label>
+    <input type="date" name="loan_date" bind:value={loan_date} required />
+    <label for="devolution_date">Fecha de devolución</label>
+    <input type="date" name="devolution_date" bind:value={devolution_date} required />
+    <label for="renew_tries">Número de renovaciones</label>
+    <input type="number" name="renew_tries" bind:value={renew_tries} required />
+
     <div id="btns">
         <button type="submit" id="register">Registrar</button>
     </div>
@@ -33,29 +35,43 @@
 <style>
     form {
         position: absolute;
-        top: 20%;
+        top: 15%;
         left: 30%;
         width: 40%;
-        height: 50%;
+        height: 55%;
         padding: 4rem 1rem;
         border-radius: 1rem;
-        display: flex;
         background-color: #44365997;
-        justify-content: space-around;
-        flex-direction: column;
-        align-items: center;
         box-shadow: 0.5rem 0.5rem 2rem #0004;
+        gap: 1rem;
         color: #fefefe;
+        align-items: center;
     }
 
+    label, input {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width: 70%;
+        margin-left: 80px;
+        margin-top: 10px;
+        height:20px;
+    }
+    
     h1 {
+        margin-top: .5px;
         text-align: center;
     }
+    
     #btns {
-        margin-top: 1rem;
-        box-shadow: 0.5rem 0.5rem 2rem #0004;
+        margin: 2rem;
+        align-items: center;
+        margin-left: 200px;
+        
     }
-    #register {
+
+        #register {
         background-color: #8C618C;
         width: 9rem;
         color: #fefefe;
@@ -69,14 +85,12 @@
         text-decoration: none;
     }
 
-    label {
-        margin-top: 10px;
-    }
     button{
         box-shadow: 0.5rem 0.5rem 2rem #0004;
         border: none;
     }
-    #btns button:hover {
+
+     #btns button:hover {
         box-shadow: 0.5rem 0.5rem 2rem #0004;
         background-color: #443659;
     }

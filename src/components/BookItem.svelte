@@ -1,43 +1,44 @@
----
-import type { AnyZodObject } from "astro/zod";
+<script lang="ts">
+    export let id: number | undefined;
+    export let title: string;
+    export let autor: string;
+    export let category: string;
+    export let editorial: string;
+</script>
 
-interface Props {
-    title: string;
-    category: string;
-    place: string;
-    autor: string;
-    editorial: string;
-    icon: string;
-    icon1: string;
-    url1: string;
-    url2: string;
-}
-
-const { title, category, place, autor, editorial, icon, icon1, url1, url2 } =
-    Astro.props;
----
-
+{#if id}
+    <div>{id}</div>
+{/if}
 <div id="main">
     <div id="title">{title}</div>
     <div id="autor">{autor}</div>
     <div id="category">{category}</div>
     <div id="editorial">{editorial}</div>
-    <div id="place">{place}</div>
     <div id="icon-container">
         <div class="icon">
-            <a href={url1} set:html={icon} />
-        </div>
-        <div class="icon">
-            <a href={url2} set:html={icon1} />
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-book-2"
+                width="52"
+                height="52"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="#fefefe"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M19 4v16h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12z"
+                ></path>
+                <path d="M19 16h-12a2 2 0 0 0 -2 2"></path>
+                <path d="M9 8h6"></path>
+            </svg>
         </div>
     </div>
 </div>
+
 <style>
-    a {
-        text-decoration: none;
-        color: white;
-        font-style: normal;
-    }
     #icon-container {
         display: inline-flex;
         padding: inherit;
@@ -63,10 +64,6 @@ const { title, category, place, autor, editorial, icon, icon1, url1, url2 } =
         grid-area: editorial;
         font-family: "Arvo", sans-serif;
     }
-    #place {
-        grid-area: place;
-        font-family: "Arvo", sans-serif;
-    }
     div > div {
         display: flex;
         align-items: center;
@@ -78,21 +75,18 @@ const { title, category, place, autor, editorial, icon, icon1, url1, url2 } =
     }
     #category,
     #editorial,
-    #place {
-        background-color: #8c618c;
-    }
     #main {
         display: grid;
         background-color: #32253f;
         grid-template-columns: 6rem 1fr 2fr 2fr;
         grid-template-rows: 3rem 4rem;
-        grid-template-areas: "icon title title autor" "icon category editorial place";
+        grid-template-areas: "icon title title category" "icon autor autor editorial";
         border-radius: 0.5rem;
         overflow: hidden;
         box-shadow: 0.2rem 0.2rem 1rem #0005;
         color: #fefefe;
     }
-    @media screen (width <= 1000) {
+    @media screen and (width <= 1000) {
         #main {
             grid-template-areas: "icon title" "autor autor" "category editorial" "place place";
         }

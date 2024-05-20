@@ -1,12 +1,8 @@
----
-interface Props {
-    name: string;
-    matricula: string;
-    email: string;
-}
-
-const { name, matricula, email } = Astro.props;
----
+<script>
+    export let register;
+    export let name;
+    export let email;
+</script>
 
 <div>
     <a href="/admin/student/loan" id="matricula"
@@ -39,7 +35,7 @@ const { name, matricula, email } = Astro.props;
         </svg></a
     >
     <span id="name">{name}</span>
-    <span id="matricula">{matricula}</span>
+    <span id="matricula">{register}</span>
     <span id="email">{email}</span>
 </div>
 

@@ -1,10 +1,7 @@
----
-
----
-
 <div>
     <slot />
 </div>
+
 <style>
     div {
         margin: 1rem 8rem;
