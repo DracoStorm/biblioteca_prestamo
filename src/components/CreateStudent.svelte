@@ -127,4 +127,5 @@
         box-shadow: 0.5rem 0.5rem 2rem #0004;
         background-color: #443659;
     }
+    
 </style>
