@@ -2,50 +2,16 @@
 import Layout from "../../../layouts/Layout.astro";
 import Nav from "../../../components/NavBarAdmin.astro";
 import DeleteBook from "../../../components/DeleteBook.svelte";
-import DBook from "../../../components/DBook.svelte";
-import type { Book } from "../../../types/api";
-import Message from "../../../components/Menssage.svelte";
-import { GET, DELETE, ADMIN_BOOK } from "../../../API/API.json";
 
-let RegisterS: Book | undefined;
-let creation_error: string | undefined;
-
-// Checa si existe la sesión
 const token = Astro.cookies.get("token");
 const request = Astro.request;
 
-if (token) {
-    if (request.method === "POST") {
-        try {
-            const formData = await Astro.request.formData();
-            const eliminar = formData.get("eliminar")?.toString();
-
-            if (eliminar) {
-                await DELETE(
-                    { eliminar: parseInt(eliminar) },
-                    ADMIN_BOOK,
-                    token.value,
-                );
-            }
-        } catch (e) {
-            creation_error = "No se pudo eliminar estudiante";
-        }
-    } else {
-        try {
-            // Si la sesión es válida
-            RegisterS = (await GET(ADMIN_BOOK, token.value)) as Book;
-        } catch (e) {
-            // Si no, regresa al login
-            console.log(e);
-            return Astro.redirect("/");
-        }
-    }
-} else {
+if (!token) {
     return Astro.redirect("/");
 }
 ---
 
-<Layout title="eliminar libro">
+<Layout title="Eliminar libro">
     <Nav />
-    <DBook />
+    <DeleteBook client:load cokies={token.value} />
 </Layout>

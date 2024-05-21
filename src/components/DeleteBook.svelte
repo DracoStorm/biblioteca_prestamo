@@ -1,53 +1,30 @@
 <script lang="ts">
-    import { createEventDispatcher } from "svelte";
-    export let eliminar: number;
+    import { DELETE, ADMIN_BOOK } from "../API/API.json";
 
-    const dispatch = createEventDispatcher();
+    export let cokies: string;
 
-    async function handleSubmit(event: Event) {
-        event.preventDefault();
-        const formData = new FormData(event.target as HTMLFormElement);
-        const id = formData.get("id");
+    let id: string;
 
+    async function handleSubmit() {
+        console.log(`Eliminando libro con ID: ${id}`);
         try {
-            const response = await fetch(
-                `http://127.0.0.1:8000/API/a/book/${id}`,
-                {
-                    method: "DELETE",
-                    headers: {
-                        Authorization:
-                            "Bearer 9643c1a6845328c9a401658e988de1556a0fcd2b94eabd8ccd",
-                    },
-                },
-            );
-
-            if (response.ok) {
-                dispatch("bookDeleted", {
-                    message: "Libro eliminado con éxito.",
-                    type: "success",
-                });
+            const promise = await DELETE({ id: id }, ADMIN_BOOK, cokies);
+            if (promise.ok) {
+                console.log("Libro eliminado exitosamente");
             } else {
-                const errorData = await response.json();
-                console.error("Error al eliminar el libro:", errorData);
-                dispatch("bookDeleted", {
-                    message: "No se pudo eliminar el libro.",
-                    type: "error",
-                });
+                const errorData = await promise.json();
+                console.error("Error al eliminar el libro", errorData);
             }
         } catch (error) {
-            console.error("Error al eliminar el libro:", error);
-            dispatch("bookDeleted", {
-                message: "Error de conexión.",
-                type: "error",
-            });
+            console.error("Error en la solicitud de eliminación", error);
         }
     }
 </script>
 
-<form on:submit={handleSubmit}>
+<form on:submit|preventDefault={handleSubmit}>
     <h1>Eliminar registro de libro</h1>
     <label for="id">ID del libro</label>
-    <input type="text" id="id" bind:value={eliminar} required />
+    <input type="text" id="id" name="id" bind:value={id} required />
     <div id="btns">
         <button type="submit" id="delete">Eliminar</button>
     </div>
