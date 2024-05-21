@@ -170,6 +170,9 @@
         left: 11.5rem;
         margin-top: 2rem;
     }
+    button{
+        border: none;
+    }
     button:hover {
         background-color: #443659;
     }

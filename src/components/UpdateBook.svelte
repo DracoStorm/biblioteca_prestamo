@@ -120,7 +120,7 @@
             </select>
         </div>
         <div id="btns">
-            <button type="submit" id="mod">Acrualizar</button>
+            <button type="submit" id="mod">Actualizar</button>
         </div>
     </div>
 </form>

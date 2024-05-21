@@ -1,32 +1,66 @@
 <script lang="ts">
-    import { createEventDispatcher } from 'svelte';
+    import { GET, PATCH, ADMIN_STUDENT } from "../API/API.json";
+    
+    export let cookies: string;
+    let register: number;
+    let first_name: string;
+    let last_name: string;
+    let e_mail: string;
 
-    export let register: number;
-    export let first_name: string;
-    export let last_name: string;
-    export let e_mail: string;
+    async function fetchStudentDetails() {
+        if (register) {
+            try {
+                const response = await GET(`${ADMIN_STUDENT}${register}/`, cookies);
+                if (response.ok) {
+                    const student = await response.json();
+                    first_name = student.first_name;
+                    last_name = student.last_name;
+                    e_mail = student.e_mail;
+                } else {
+                    console.error("Error fetching student details:", response.statusText);
+                }
+            } catch (error) {
+                console.error("Error fetching student details:", error);
+            }
+        }
+    }
 
-    const dispatch = createEventDispatcher();
-
-    function handleSubmit(event: Event) {
-        event.preventDefault();
-        const formData = new FormData(event.target as HTMLFormElement);
-        dispatch('submit', formData);
+    async function handleSubmit() {
+        try {
+            const response = await PATCH(
+                {
+                    register,
+                    first_name,
+                    last_name,
+                    e_mail,
+                },
+                `${ADMIN_STUDENT}${register}/`,
+                cookies,
+            );
+            if (response.ok) {
+                console.log("Estudiante actualizado exitosamente");
+            } else {
+                const errorData = await response.json();
+                console.error("Error al actualizar el estudiante:", errorData);
+            }
+        } catch (error) {
+            console.error("Error en la solicitud de actualización", error);
+        }
     }
 </script>
 
-<form on:submit={handleSubmit}>
+<form on:submit|preventDefault={handleSubmit}>
     <h1>Actualizar Estudiante</h1>
-    <label for="first_name">Nombre</label>
-    <input type="text" name="first_name" bind:value={first_name} required />
-    <label for="last_name">Apellido</label>
-    <input type="text" name="last_name" bind:value={last_name} required />
     <label for="register">Matrícula</label>
-    <input type="text" name="register" bind:value={register} required />
+    <input type="text" id="register" name="register" bind:value={register} on:blur={fetchStudentDetails} required />
+    <label for="first_name">Nombre</label>
+    <input type="text" id="first_name" name="first_name" bind:value={first_name} required />
+    <label for="last_name">Apellido</label>
+    <input type="text" id="last_name" name="last_name" bind:value={last_name} required />
     <label for="e_mail">Correo</label>
-    <input type="email" name="e_mail" bind:value={e_mail} required />
+    <input type="email" id="e_mail" name="e_mail" bind:value={e_mail} required />
     <div id="btns">
-        <button type="submit" id="register">Registrar</button>
+        <button type="submit" id="mod">Actualizar</button>
     </div>
 </form>
 
@@ -55,7 +89,7 @@
         margin-top: 1rem;
         box-shadow: 0.5rem 0.5rem 2rem #0004;
     }
-    #register {
+    #mod {
         background-color: #8C618C;
         width: 9rem;
         color: #fefefe;
@@ -72,7 +106,7 @@
     label {
         margin-top: 10px;
     }
-    button{
+    button {
         box-shadow: 0.5rem 0.5rem 2rem #0004;
         border: none;
     }

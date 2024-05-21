@@ -1,6 +1,6 @@
 <script lang="ts">
     import { createEventDispatcher } from 'svelte';
-
+    export let token: string;
     export let register: number;
 
     const dispatch = createEventDispatcher();
@@ -8,7 +8,7 @@
     function handleSubmit(event: Event) {
         event.preventDefault();
         const formData = new FormData(event.target as HTMLFormElement);
-        dispatch('submit', formData);
+        dispatch('delete', formData);
     }
 </script>
 
@@ -50,7 +50,6 @@
         color: #fefefe;
     }
 
-
     h1 {
         text-align: center;
     }
@@ -75,7 +74,7 @@
     label {
         margin-top: 10px;
     }
-    button{
+    button {
         box-shadow: 0.5rem 0.5rem 2rem #0004;
         border: none;
     }
@@ -90,4 +89,3 @@
         background-color: #ca0313;
     } 
 </style>
-
