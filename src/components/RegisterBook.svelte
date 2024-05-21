@@ -1,71 +1,46 @@
 <script lang="ts">
-    import { onMount, createEventDispatcher } from "svelte";
+    import { onMount } from "svelte";
     import type { SimpleKey } from "../types/api";
-    import { writable } from "svelte/store";
+    import { GET, CATEGORY, EDITORIAL, PUT, ADMIN_BOOK } from "../API/API.json";
 
-    export let id: number;
-    export let title: string;
-    export let author: string;
+    export let cokies: string;
 
-    const dispatch = createEventDispatcher();
-    const categories = writable<SimpleKey[]>([]);
-    const editorials = writable<SimpleKey[]>([]);
+    let title: string;
+    let author: string;
+    let editorial: number;
+    let category: number;
 
-    let selectedCategory = "";
-    let selectedEditorial = "";
+    let categories: SimpleKey[] | undefined;
+    let editorials: SimpleKey[] | undefined;
 
-    function isValidSimpleKeyArray(data: any): data is SimpleKey[] {
-        return (
-            Array.isArray(data) &&
-            data.every(
-                (item) =>
-                    item &&
-                    typeof item.id === "number" &&
-                    typeof item.name === "string",
-            )
-        );
-    }
+    async function fetchOptions() {
+        const categories_p = await GET(CATEGORY);
+        categories = await categories_p.json();
 
-    async function fetchData() {
-        try {
-            const [categoryResponse, editorialResponse] = await Promise.all([
-                fetch("http://localhost:8000/API/u/category/"),
-                fetch("http://localhost:8000/API/u/editorial/"),
-            ]);
-
-            if (!categoryResponse.ok || !editorialResponse.ok) {
-                throw new Error("Error al obtener las opciones");
-            }
-
-            const categoryData = await categoryResponse.json();
-            const editorialData = await editorialResponse.json();
-
-            if (
-                !isValidSimpleKeyArray(categoryData) ||
-                !isValidSimpleKeyArray(editorialData)
-            ) {
-                throw new Error("Formato de respuesta inesperado");
-            }
-
-            categories.set(categoryData);
-            editorials.set(editorialData);
-        } catch (error) {
-            console.error("Error al obtener las opciones", error);
-        }
+        const editorials_p = await GET(EDITORIAL);
+        editorials = await editorials_p.json();
     }
 
     onMount(() => {
-        fetchData();
+        fetchOptions();
     });
 
-    function handleSubmit(event: Event) {
-        event.preventDefault();
-        const formData = new FormData(event.target as HTMLFormElement);
-        dispatch("submit", formData);
+    async function handleSubmit() {
+        console.log(title, author, editorial, category);
+        const promise = await PUT(
+            {
+                title: title,
+                author: author,
+                editorial: editorial,
+                category: category,
+            },
+            ADMIN_BOOK,
+            cokies,
+        );
     }
 </script>
 
-<form on:submit={handleSubmit}>
+<form on:submit|preventDefault={handleSubmit}>
     <div id="hs"><h1>Registrar Libro</h1></div>
 
     <div id="title-section">
@@ -90,23 +65,25 @@
     </div>
     <div id="editorial-section">
         <label for="editorial">Editorial</label>
-        <select id="editorial" bind:value={selectedEditorial} required>
-            {#each $editorials as editorial}
-                <option value={editorial.id}>{editorial.name}</option>
-            {/each}
+        <select id="editorial" bind:value={editorial} required>
+            <option value="0" disabled selected>-- Select an Option --</option>
+            {#if editorials != undefined}
+                {#each editorials as editorial}
+                    <option value={editorial.id}>{editorial.name}</option>
+                {/each}
+            {/if}
         </select>
     </div>
     <div id="category-section">
         <label for="category">Categoria</label>
-        <select id="category" bind:value={selectedCategory} required>
-            {#each $categories as category}
-                <option value={category.id}>{category.name}</option>
-            {/each}
+        <select id="category" bind:value={category} required>
+            <option value="0" disabled selected>-- Select an Option --</option>
+            {#if categories != undefined}
+                {#each categories as category}
+                    <option value={category.id}>{category.name}</option>
+                {/each}
+            {/if}
         </select>
-    </div>
-    <div id="book-id-section">
-        <label for="bookId">ID</label>
-        <input type="text" id="bookId" name="id" bind:value={id} required />
     </div>
     <div id="btns">
         <button type="submit" id="mod">Registrar</button>

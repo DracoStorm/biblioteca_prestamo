@@ -2,56 +2,16 @@
 import Layout from "../../../layouts/Layout.astro";
 import NavAdmin from "../../../components/NavBarAdmin.astro";
 import RegisterBook from "../../../components/RegisterBook.svelte";
-import { GET, POST, ADMIN_STUDENT, ADMIN_BOOK } from "../../../API/API.json";
-import type { Book } from "../../../types/api";
 
-let RegisterS: Book | undefined;
-let creation_error: string | undefined;
-/*
 const token = Astro.cookies.get("token");
 const request = Astro.request;
 
-if (token) {
-    if (request.method === "POST") {
-        try {
-            const formData = await Astro.request.formData();
-            const id = formData.get("id")?.toString();
-            const title = formData.get("title")?.toString();
-            const author = formData.get("author")?.toString();
-            const category = formData.get("category")?.toString();
-            const editorial = formData.get("editorial")?.toString();
-            if (id && title && author && category && editorial) {
-                await POST(
-                    {
-                        id: parseInt(id),
-                        title,
-                        author,
-                        category: parseInt(category),
-                        editorial: parseInt(editorial),
-                    },
-                    ADMIN_BOOK,
-                    token.value,
-                );
-            }
-        } catch (e) {
-            creation_error = "No se pudo crear el registro del libro";
-        }
-    } else {
-        try {
-            // Si la sesión es válida
-            RegisterS = (await GET(ADMIN_BOOK, token.value)) as Book;
-        } catch (e) {
-            // Si no, regresa al login
-            console.log(e);
-            return Astro.redirect("/");
-        }
-    }
-} else {
+if (!token) {
     return Astro.redirect("/");
-}*/
+}
 ---
 
 <Layout title="Registrar libro">
     <NavAdmin />
-    <div><RegisterBook client:load /></div>
+    <RegisterBook client:load cokies={token.value} />
 </Layout>
