@@ -4,8 +4,8 @@
     export let email;
 </script>
 
-<div>
-    <a href="/admin/student/loan" id="matricula"
+<div id="container">
+    <a href="/admin/student/loan" id="icon-link"
         ><svg
             xmlns="http://www.w3.org/2000/svg"
             class="icon icon-tabler icon-tabler-books"
@@ -34,13 +34,20 @@
             <path d="M16 16l3.923 -.98"></path>
         </svg></a
     >
-    <span id="name">{name}</span>
-    <span id="matricula">{register}</span>
-    <span id="email">{email}</span>
+
+    <div class="info-box">
+        <span id="name">{name}</span>
+    </div>
+    <div class="info-box">
+        <span id="matricula">{register}</span>
+    </div>
+    <div class="info-box">
+        <span id="email">{email}</span>
+    </div>
 </div>
 
 <style>
-    div {
+    #container {
         display: flex;
         text-align: center;
         border-radius: 0.5rem;
@@ -49,21 +56,35 @@
         line-height: 2.4;
         font-size: 1.2rem;
         font-family: "Arvo", sans-serif;
-        color: #fefefe;
+        color: var(--accent-2);
     }
     span {
-        flex-grow: 1;
+        display: block;
+        height: inherit;
     }
     #matricula {
         background-color: var(--secondary);
+        min-width: 10rem;
     }
-
+    #name {
+        min-width: 16rem;
+    }
+    #email {
+        color: var(--accent-2);
+        min-width: 24rem;
+    }
     #name,
     #email {
         background-color: var(--primary);
     }
-    #email {
-        color: #fefefe;
+
+    .info-box {
+        flex-grow: 1;
+        height: inherit;
+    }
+
+    #icon-link {
+        background-color: var(--secondary);
     }
 
     a {
@@ -73,5 +94,13 @@
         padding: 0.2rem 1rem;
         text-decoration: none;
         line-height: 1.2;
+        /* max-inline-size: 0.5rem; */
+    }
+
+    @media screen and (width <=1280px) {
+        #container {
+            flex-direction: column;
+            height: auto;
+        }
     }
 </style>
