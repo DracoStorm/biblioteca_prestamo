@@ -1,7 +1,7 @@
 <script lang="ts">
     import { GET, PATCH, ADMIN_STUDENT } from "../API/API.json";
     
-    export let cookies: string;
+    export let cokies: string;
     let register: number;
     let first_name: string;
     let last_name: string;
@@ -10,7 +10,7 @@
     async function fetchStudentDetails() {
         if (register) {
             try {
-                const response = await GET(`${ADMIN_STUDENT}${register}/`, cookies);
+                const response = await GET(`${ADMIN_STUDENT}${register}/`, cokies);
                 if (response.ok) {
                     const student = await response.json();
                     first_name = student.first_name;
@@ -35,7 +35,7 @@
                     e_mail,
                 },
                 `${ADMIN_STUDENT}${register}/`,
-                cookies,
+                cokies,
             );
             if (response.ok) {
                 console.log("Estudiante actualizado exitosamente");
