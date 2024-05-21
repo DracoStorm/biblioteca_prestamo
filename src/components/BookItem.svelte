@@ -6,9 +6,6 @@
     export let editorial: string;
 </script>
 
-{#if id}
-    <div>{id}</div>
-{/if}
 <div id="main">
     <div id="title">{title}</div>
     <div id="autor">{autor}</div>
@@ -16,6 +13,9 @@
     <div id="editorial">{editorial}</div>
     <div id="icon-container">
         <div class="icon">
+            {#if id}
+                <div>{id}</div>
+            {/if}
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="icon icon-tabler icon-tabler-book-2"
@@ -40,16 +40,16 @@
 
 <style>
     #icon-container {
-        display: inline-flex;
+        display: flex;
         padding: inherit;
-        flex-direction: column;
-
-        align-items: center;
+        justify-content: center;
+        grid-area: icon;
     }
     #title {
         grid-area: title;
         border-top-left-radius: 0.5rem;
         font-family: "Arvo", sans-serif;
+        border-bottom: var(--primary) dotted 0.2rem;
     }
     #autor {
         grid-area: autor;
@@ -57,8 +57,8 @@
     }
     #category {
         grid-area: category;
-        border-bottom-left-radius: 0.5rem;
         font-family: "Arvo", sans-serif;
+        border-bottom: var(--secondary) dotted 0.2rem;
     }
     #editorial {
         grid-area: editorial;
@@ -71,13 +71,12 @@
     }
     #title,
     #autor {
-        background-color: #443659;
+        background-color: var(--secondary);
     }
-    #category,
-    #editorial,
+
     #main {
         display: grid;
-        background-color: #32253f;
+        background-color: var(--primary);
         grid-template-columns: 6rem 1fr 2fr 2fr;
         grid-template-rows: 3rem 4rem;
         grid-template-areas: "icon title title category" "icon autor autor editorial";

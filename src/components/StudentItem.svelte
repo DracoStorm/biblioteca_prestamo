@@ -52,11 +52,12 @@
         text-align: center;
         border-radius: 0.5rem;
         overflow: hidden;
-        height: 3rem;
-        line-height: 2.4;
+        height: 4rem;
+        line-height: 3.4;
         font-size: 1.2rem;
         font-family: "Arvo", sans-serif;
         color: var(--accent-2);
+        box-shadow: 0.2rem 0.2rem 1rem #0005;
     }
     span {
         display: block;
@@ -93,7 +94,7 @@
         font-weight: bold;
         padding: 0.2rem 1rem;
         text-decoration: none;
-        line-height: 1.2;
+        line-height: 1.8;
         /* max-inline-size: 0.5rem; */
     }
 
