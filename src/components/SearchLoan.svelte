@@ -17,7 +17,7 @@
     <label for="id">ID</label>
     <input type="text" name="id" bind:value={id} required />
     <div id="btns">
-        <button type="submit" id="buscar">Buscar</button>
+        <button type="submit" id="consultar">Consultar</button>
     </div>
 </form>
 
@@ -58,7 +58,7 @@
         margin-top: 1rem;
         box-shadow: 0.5rem 0.5rem 2rem #0004;
     }
-    #buscar {
+    #consultar {
         background-color: #8C618C;
         width: 9rem;
         color: #fefefe;

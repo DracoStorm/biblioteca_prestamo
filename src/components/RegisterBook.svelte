@@ -85,6 +85,10 @@
             {/if}
         </select>
     </div>
+    <div id="book-id-section">
+        <label for="bookId">ID</label>
+        <input type="text" id="bookId" name="id" bind:value={id} required />
+    </div>
     <div id="btns">
         <button type="submit" id="mod">Registrar</button>
     </div>
@@ -169,6 +173,7 @@
         position: relative;
         left: 11.5rem;
         margin-top: 2rem;
+        border: none;
     }
     button{
         border: none;
