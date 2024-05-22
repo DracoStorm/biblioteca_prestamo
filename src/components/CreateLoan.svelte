@@ -1,17 +1,34 @@
 <script lang="ts">
-    import { POST, STUDENT_LOAN } from "../API/API.json";
+    import { PUT, ADMIN_STUDENT_LOAN } from "../API/API.json";
     export let cookies: string;
-    let id: number;
-    function handleSubmit() {}
+    let id_book: number;
+    let register: number;
+    async function handleSubmit() {
+        const request = await PUT(
+            {
+                id_book: id_book,
+                register: register,
+            },
+            ADMIN_STUDENT_LOAN,
+            cookies,
+        );
+        if (!request.ok) {
+            alert("Hubo un problema con el prestamo");
+        } else {
+            console.log("Prestamo existosamente registrado");
+        }
+    }
 </script>
 
 <form on:submit|preventDefault={handleSubmit}>
     <h1>Registrar Préstamo</h1>
-    <label for="id">Book ID</label>
-    <input name="id" bind:value={id} required />
+    <label for="register">Matricula</label>
+    <input name="register" id="register" bind:value={register} required />
+    <label for="id_book">Libro ID</label>
+    <input name="id_book" bind:value={id_book} required />
 
     <div id="btns">
-        <button type="submit" id="register">Registrar</button>
+        <button type="submit" id="submit">Registrar</button>
     </div>
 </form>
 
@@ -24,9 +41,10 @@
         height: 55%;
         padding: 4rem 1rem;
         border-radius: 1rem;
-
+        display: flex;
+        flex-direction: column;
         gap: 1rem;
-        align-items: center;
+        justify-content: space-around;
     }
 
     label,
@@ -47,12 +65,10 @@
     }
 
     #btns {
-        margin: 2rem;
-        align-items: center;
-        margin-left: 200px;
+        display: flex;
     }
 
-    #register {
+    #submit {
         background-color: #8c618c;
         width: 9rem;
         color: #fefefe;

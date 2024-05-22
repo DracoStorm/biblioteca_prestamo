@@ -8,6 +8,7 @@
     export let devolution_date: string;
     export let renew_tries: number;
     export let id_loan: number;
+    export let id: boolean = false;
 
     function renew_handler() {
         if (renew_tries < 2) {
@@ -28,7 +29,12 @@
     }
 </script>
 
-<div id="dev_date">{devolution_date}</div>
+<div id="dev_date">
+    {devolution_date}
+    {#if id}
+        <span> ID: {id_loan}</span>
+    {/if}
+</div>
 <div id="main">
     <div id="title" class="text">{title}</div>
     <div id="autor" class="text">{author}</div>

@@ -4,9 +4,6 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
 import type { Loan } from "../../../types/api";
 import CreateLoan from "../../../components/CreateLoan.svelte";
 
-let RegisterL: Loan | undefined;
-let creation_error: string | undefined;
-
 // Checa si existe la sesión
 const token = Astro.cookies.get("token");
 const request = Astro.request;
@@ -18,6 +15,5 @@ if (!token) {
 
 <Layout title="modificar prestamo">
     <NavAdmin />
-    <CreateLoan cookies={token.value} />
-    {creation_error && <p style="color: red;">{creation_error}</p>}
+    <CreateLoan client:load cookies={token.value} />
 </Layout>

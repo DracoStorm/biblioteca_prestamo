@@ -1,25 +1,56 @@
 <script lang="ts">
-    import { createEventDispatcher } from "svelte";
+    import { POST, ADMIN_STUDENT_LOAN } from "../API/API.json";
+    import SearchBox from "./SearchBox.svelte";
+    import LoanItem from "./LoanItem.svelte";
+    import type { Loan, StudentLoans } from "../types/api";
 
-    export let id: number;
+    export let cookies: string;
+    let register: number;
+    let loans: Loan[] | undefined = undefined;
 
-    const dispatch = createEventDispatcher();
-
-    function handleSubmit(event: Event) {
-        event.preventDefault();
-        const formData = new FormData(event.target as HTMLFormElement);
-        dispatch("submit", formData);
+    async function handleSubmit() {
+        const request = await POST(
+            { register: register },
+            ADMIN_STUDENT_LOAN,
+            cookies,
+        );
+        if (!request.ok && request.status != 404) {
+            alert("Error");
+            loans = undefined;
+        } else if (!request.ok) {
+            loans = undefined;
+        } else {
+            const json = await request.json();
+            const sl = (await json) as StudentLoans;
+            loans = sl.loans;
+        }
     }
 </script>
 
-<form on:submit={handleSubmit}>
-    <h1>Buscar Préstamo</h1>
-    <label for="id">ID</label>
-    <input type="text" name="id" bind:value={id} required />
-    <div id="btns">
-        <button type="submit" id="consultar">Consultar</button>
-    </div>
-</form>
+<SearchBox>
+    <form on:submit|preventDefault={handleSubmit}>
+        <h1>Buscar Préstamo</h1>
+        <label for="id">ID</label>
+        <input type="text" name="id" bind:value={register} required />
+        <div id="btns">
+            <button type="submit" id="consultar">Consultar</button>
+        </div>
+    </form>
+    {#if loans != undefined}
+        {#each loans as loan}
+            <LoanItem
+                id_loan={loan.id}
+                title={loan.book.title}
+                author={loan.book.author}
+                editorial={loan.book.editorial.name}
+                category={loan.book.category.name}
+                renew_tries={loan.renew_tries}
+                devolution_date={loan.devolution_date.toString()}
+                id
+            />
+        {/each}
+    {/if}
+</SearchBox>
 
 <style>
     @media (width <= 1000px) {
@@ -34,11 +65,7 @@
         }
     }
     form {
-        position: absolute;
-        top: 25%;
-        left: 30%;
-        width: 40%;
-        height: 40%;
+        margin: auto;
         padding: 4rem 1rem;
         border-radius: 1rem;
         display: flex;
