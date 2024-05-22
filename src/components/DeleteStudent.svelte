@@ -1,18 +1,25 @@
 <script lang="ts">
-    import { createEventDispatcher } from 'svelte';
-    export let token: string;
-    export let register: number;
+    import { DELETE, ADMIN_STUDENT } from '../API/API.json';
+    export let cokies: string;
+    let register: string;
 
-    const dispatch = createEventDispatcher();
-
-    function handleSubmit(event: Event) {
-        event.preventDefault();
-        const formData = new FormData(event.target as HTMLFormElement);
-        dispatch('delete', formData);
+    async function handleSubmit() {
+    console.log(`Eliminando estudiante con matrícula: ${register}`);
+    try {
+        const promise = await DELETE({ register: parseInt(register)}, ADMIN_STUDENT, cokies);
+        if (promise.ok) {
+            console.log("Estudiante eliminado exitosamente");
+        } else {
+            const errorData = await promise.json();
+            console.error("Error al eliminar el estudiante", errorData);
+        }
+    } catch (error) {
+        console.error("Error en la solicitud de eliminación", error);
     }
+}
 </script>
 
-<form on:submit={handleSubmit}>
+<form on:submit|preventDefault={handleSubmit}>
     <h1>Eliminar registro del Estudiante</h1>
     <label for="register">Matrícula</label>
     <input type="text" name="register" bind:value={register} required />

@@ -2,66 +2,14 @@
 import Layout from "../../../layouts/Layout.astro";
 import NavBarAdmin from "../../../components/NavBarAdmin.astro";
 import DeleteStudent from "../../../components/DeleteStudent.svelte";
-import { DELETE, ADMIN_STUDENT } from "../../../API/API.json";
-import type { Student } from "../../../types/api";
 
-// Variables para manejar datos de estudiantes
-let RegisterS: Student | undefined;
-let deletion_error: string | undefined;
-
-const token = Astro.cookies.get('token') || '';
+const token = Astro.cookies.get("token");
+const request = Astro.request;
 if (!token) {
     return Astro.redirect('/');
 }
-
-// Función para manejar la eliminación del estudiante
-async function handleDelete(event) {
-    deletion_error = undefined;
-    try {
-        const register = event.detail.get('register');
-        const response = await DELETE({ register }, `${ADMIN_STUDENT}${register}/`, token);
-        if (!response.ok) {
-            deletion_error = `Error ${response.status}: ${response.statusText}`;
-            return;
-        }
-        const result = await response.json();
-        console.log('Deleted student:', result);
-        // Puedes actualizar el estado de la página aquí si es necesario
-    } catch (error) {
-        if (error instanceof Error) {
-            deletion_error = `Error: ${error.message}`;
-        } else {
-            deletion_error = `Unexpected error: ${String(error)}`;
-        }
-    }
-}
 ---
-
 <Layout title="Eliminar Estudiante">
     <NavBarAdmin />
-    {token ? (
-        <DeleteStudent {token} on:delete={handleDelete} />
-    ) : (
-        <p style="color: red;">No se pudo autenticar. Por favor, inicie sesión.</p>
-    )}
-    {deletion_error && <p style="color: red;">{deletion_error}</p>}
+    <DeleteStudent cliente: load cokies={token.value} />
 </Layout>
-
-<style>
-    section {
-        background-color: #32253f;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        box-shadow: 0.2rem 0.2rem 1rem #0005;
-        color: var(--accent-2);
-    }
-    h2 {
-        color: var(--primary);
-    }
-    h3 {
-        color: var(--secondary);
-    }
-    p {
-        color: var(--accent-1);
-    }
-</style>

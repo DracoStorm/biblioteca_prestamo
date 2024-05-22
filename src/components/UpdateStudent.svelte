@@ -1,58 +1,46 @@
 <script lang="ts">
-    import { GET, PATCH, ADMIN_STUDENT } from "../API/API.json";
-    
+    import {  ADMIN_STUDENT,GET, PATCH } from "../API/API.json";
+
     export let cokies: string;
     let register: number;
     let first_name: string;
     let last_name: string;
     let e_mail: string;
+    let error = '';
 
-    async function fetchStudentDetails() {
-        if (register) {
-            try {
-                const response = await GET(`${ADMIN_STUDENT}${register}/`, cokies);
-                if (response.ok) {
-                    const student = await response.json();
-                    first_name = student.first_name;
-                    last_name = student.last_name;
-                    e_mail = student.e_mail;
-                } else {
-                    console.error("Error fetching student details:", response.statusText);
-                }
-            } catch (error) {
-                console.error("Error fetching student details:", error);
-            }
-        }
-    }
 
-    async function handleSubmit() {
-        try {
-            const response = await PATCH(
-                {
-                    register,
-                    first_name,
-                    last_name,
-                    e_mail,
-                },
-                `${ADMIN_STUDENT}${register}/`,
-                cokies,
-            );
-            if (response.ok) {
-                console.log("Estudiante actualizado exitosamente");
-            } else {
-                const errorData = await response.json();
-                console.error("Error al actualizar el estudiante:", errorData);
-            }
-        } catch (error) {
-            console.error("Error en la solicitud de actualización", error);
-        }
+async function handleSubmit() {
+    if (!register) {
+        console.error("El campo de matrícula no está definido");
+        return;
     }
+    try {
+        const response = await PATCH(
+            {
+                register:register,
+                first_name: first_name,
+                last_name: last_name,
+                e_mail: e_mail,
+            },
+            ADMIN_STUDENT,
+            cokies,
+        );
+        if (response.ok) {
+            console.log("Estudiante actualizado exitosamente");
+        } else {
+            const errorData = await response.text(); // Obtener el texto de la respuesta
+            console.error(`Error al actualizar el estudiante: ${errorData}`);
+        }
+    } catch (err) {
+        console.error("Error en la solicitud de actualización:", err);
+    }
+}
 </script>
 
 <form on:submit|preventDefault={handleSubmit}>
     <h1>Actualizar Estudiante</h1>
     <label for="register">Matrícula</label>
-    <input type="text" id="register" name="register" bind:value={register} on:blur={fetchStudentDetails} required />
+    <input type="text" id="register" name="register" bind:value={register} required />
     <label for="first_name">Nombre</label>
     <input type="text" id="first_name" name="first_name" bind:value={first_name} required />
     <label for="last_name">Apellido</label>
@@ -62,6 +50,9 @@
     <div id="btns">
         <button type="submit" id="mod">Actualizar</button>
     </div>
+    {#if error}
+        <p style="color: red;">{error}</p>
+    {/if}
 </form>
 
 <style>
