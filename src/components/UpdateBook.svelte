@@ -138,48 +138,28 @@
         }
     }
 
-    #title-section {
-        grid-area: title;
-    }
-
-    #editorial-section {
-        grid-area: editorial;
-    }
-
-    #category-section {
-        grid-area: category;
-    }
-
-    #hs {
-        grid-area: hs;
-    }
     form {
         position: absolute;
         top: 15%;
         left: 30%;
         width: 40%;
-        height: 50%;
-        padding: 4rem 1rem;
+        height: inherit;
+        padding: 2rem 1rem;
         border-radius: 1rem;
         background-color: #44365997;
         box-shadow: 0.5rem 0.5rem 2rem #0004;
         color: #fefefe;
-        display: grid;
-        grid-template-rows: repeat(4, 1fr);
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas:
-            "hs hs hs"
-            "title title autor" "editorial editorial category"
-            "place place ID";
         gap: 1rem;
         font-family: "Bitter", sans-serif;
     }
     div {
-        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
         font-family: "Bitter", sans-serif;
+    }
+    #id-section {
+        margin: 0rem 5rem;
     }
     input {
         width: 100%;
@@ -187,6 +167,7 @@
     h1 {
         text-align: center;
     }
+
     button {
         background-color: #8c618c;
         width: 9rem;
