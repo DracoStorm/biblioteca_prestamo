@@ -110,6 +110,8 @@
     form {
         position: relative;
         margin: calc(100vh / 2 - 12rem) auto;
+        background: none;
+        box-shadow: none;
     }
 
     #search-container {

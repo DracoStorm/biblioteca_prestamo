@@ -11,40 +11,13 @@ let creation_error: string | undefined;
 const token = Astro.cookies.get("token");
 const request = Astro.request;
 
-/*
-if (token) {
-    if (request.method === "POST") {
-        try {
-            const formData = await Astro.request.formData();
-            const register = formData.get("register")?.toString();
-            const first_name = formData.get("first_name")?.toString();
-            const last_name = formData.get("last_name")?.toString();
-            const e_mail = formData.get("e_mail")?.toString();
-            
-            if (register && first_name && last_name && e_mail) {
-                await POST({ register: parseInt(register), first_name, last_name, e_mail }, ADMIN_STUDENT, token.value);
-            }
-        } catch (e) {
-            creation_error = "No se pudo crear el estudiante";
-        }
-    } else {
-        try {
-            // Si la sesión es válida
-            RegisterS = (await GET(ADMIN_STUDENT, token.value)) as Student;
-        } catch (e) {
-            // Si no, regresa al login
-            console.log(e);
-            return Astro.redirect("/");
-        }
-    }
-} else {
+if (!token) {
     return Astro.redirect("/");
-}*/
+}
 ---
 
 <Layout title="modificar prestamo">
     <NavAdmin />
-    <CreateLoan/>
+    <CreateLoan cokies={token.value} />
     {creation_error && <p style="color: red;">{creation_error}</p>}
 </Layout>
-

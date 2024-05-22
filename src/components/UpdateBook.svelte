@@ -146,9 +146,13 @@
         height: inherit;
         padding: 2rem 1rem;
         border-radius: 1rem;
-        background-color: #44365997;
-        box-shadow: 0.5rem 0.5rem 2rem #0004;
-        color: #fefefe;
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "hs hs hs"
+            "title title autor" "editorial editorial category"
+            "place place ID";
         gap: 1rem;
         font-family: "Bitter", sans-serif;
     }

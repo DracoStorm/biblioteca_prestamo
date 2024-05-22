@@ -58,7 +58,6 @@
         }
     }
     form {
-        color: #ffffff;
         position: absolute;
         top: 15%;
         left: 30%;
@@ -67,11 +66,9 @@
         padding: 4rem 1rem;
         border-radius: 1rem;
         display: flex;
-        background: #44365997;
         justify-content: space-around;
         flex-direction: column;
         align-items: center;
-        box-shadow: 0.25rem 0.25rem 2rem #c6b8d9;
     }
 
     h1,

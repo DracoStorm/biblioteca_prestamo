@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { PUT, ADMIN_STUDENT } from '../API/API.json';
+    import { PUT, ADMIN_STUDENT } from "../API/API.json";
 
     export let cokies: string;
 
@@ -9,7 +9,7 @@
     let last_name: string;
     let e_mail: string;
 
-    async function handleSubmit(){
+    async function handleSubmit() {
         console.log(register, first_name, last_name, e_mail);
         /*console.log("hola");*/
         const promise = await PUT(
@@ -26,22 +26,45 @@
     }
 </script>
 
-
 <form on:submit|preventDefault={handleSubmit}>
     <h1>Registrar Estudiante</h1>
-    
+
     <label for="first_name">Nombre:</label>
-    <input type="text" id="first_name" name="first_name" bind:value={first_name} required />
-    
+    <input
+        type="text"
+        id="first_name"
+        name="first_name"
+        bind:value={first_name}
+        required
+    />
+
     <label for="last_name">Apellido:</label>
-    <input type="text" id="last_name" name="last_name" bind:value={last_name} required />
-    
+    <input
+        type="text"
+        id="last_name"
+        name="last_name"
+        bind:value={last_name}
+        required
+    />
+
     <label for="register">Matrícula:</label>
-    <input type="text" id="register" name="register" bind:value={register} required />
-    
+    <input
+        type="text"
+        id="register"
+        name="register"
+        bind:value={register}
+        required
+    />
+
     <label for="e_mail">Correo:</label>
-    <input type="email" id="e_mail" name="e_mail" bind:value={e_mail} required />
-    
+    <input
+        type="email"
+        id="e_mail"
+        name="e_mail"
+        bind:value={e_mail}
+        required
+    />
+
     <div id="btns">
         <button type="submit" id="register-btn">Registrar</button>
     </div>
@@ -57,12 +80,9 @@
         padding: 4rem 1rem;
         border-radius: 1rem;
         display: flex;
-        background-color: #44365997;
         justify-content: space-around;
         flex-direction: column;
         align-items: center;
-        box-shadow: 0.5rem 0.5rem 2rem #0004;
-        color: #fefefe;
     }
 
     h1 {
@@ -75,7 +95,7 @@
     }
 
     #register-btn {
-        background-color: #8C618C;
+        background-color: #8c618c;
         width: 9rem;
         color: #fefefe;
         font-size: 0.9rem;

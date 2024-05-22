@@ -127,9 +127,6 @@
         height: 50%;
         padding: 4rem 1rem;
         border-radius: 1rem;
-        background-color: #44365997;
-        box-shadow: 0.5rem 0.5rem 2rem #0004;
-        color: #fefefe;
         display: grid;
         grid-template-rows: repeat(4, 1fr);
         grid-template-columns: repeat(3, 1fr);

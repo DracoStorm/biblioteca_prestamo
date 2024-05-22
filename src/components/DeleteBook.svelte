@@ -51,12 +51,9 @@
         padding: 4rem 1rem;
         border-radius: 1rem;
         display: flex;
-        background-color: #44365997;
         justify-content: space-around;
         flex-direction: column;
         align-items: center;
-        box-shadow: 0.5rem 0.5rem 2rem #0004;
-        color: #fefefe;
     }
 
     h1 {

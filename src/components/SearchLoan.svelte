@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { createEventDispatcher } from 'svelte';
+    import { createEventDispatcher } from "svelte";
 
     export let id: number;
 
@@ -8,7 +8,7 @@
     function handleSubmit(event: Event) {
         event.preventDefault();
         const formData = new FormData(event.target as HTMLFormElement);
-        dispatch('submit', formData);
+        dispatch("submit", formData);
     }
 </script>
 
@@ -42,14 +42,10 @@
         padding: 4rem 1rem;
         border-radius: 1rem;
         display: flex;
-        background-color: #44365997;
         justify-content: space-around;
         flex-direction: column;
         align-items: center;
-        box-shadow: 0.5rem 0.5rem 2rem #0004;
-        color: #fefefe;
     }
-
 
     h1 {
         text-align: center;
@@ -59,13 +55,10 @@
         box-shadow: 0.5rem 0.5rem 2rem #0004;
     }
     #consultar {
-        background-color: #8C618C;
         width: 9rem;
-        color: #fefefe;
         font-size: 0.9rem;
         font-weight: bold;
         padding: 0.2rem 1rem;
-        box-shadow: 0.2rem 0.2rem 1rem #464444;
         margin: auto;
         border-radius: 0.8rem;
         text-align: center;
@@ -75,7 +68,7 @@
     label {
         margin-top: 10px;
     }
-    button{
+    button {
         box-shadow: 0.5rem 0.5rem 2rem #0004;
         border: none;
     }
@@ -83,12 +76,11 @@
     h1 {
         text-align: center;
     }
-    #btns {
+    button {
         margin-top: 1rem;
-        background-color: #8C618C;
+        /* background-color: #8c618c; */
     }
-    #btns button:hover {
-        background-color: #443659;
-    } 
+    button:hover {
+        background-color: var(--accent-1);
+    }
 </style>
-
