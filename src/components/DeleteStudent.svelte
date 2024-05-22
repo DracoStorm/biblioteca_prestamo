@@ -1,28 +1,38 @@
 <script lang="ts">
-    import { DELETE, ADMIN_STUDENT } from '../API/API.json';
+    import { DELETE, ADMIN_STUDENT } from "../API/API.json";
     export let cokies: string;
     let register: string;
 
     async function handleSubmit() {
-    console.log(`Eliminando estudiante con matrícula: ${register}`);
-    try {
-        const promise = await DELETE({ register: parseInt(register)}, ADMIN_STUDENT, cokies);
-        if (promise.ok) {
-            console.log("Estudiante eliminado exitosamente");
-        } else {
-            const errorData = await promise.json();
-            console.error("Error al eliminar el estudiante", errorData);
+        console.log(`Eliminando estudiante con matrícula: ${register}`);
+        try {
+            const promise = await DELETE(
+                { register: register },
+                ADMIN_STUDENT,
+                cokies,
+            );
+            if (promise.ok) {
+                console.log("Estudiante eliminado exitosamente");
+            } else {
+                const errorData = await promise.json();
+                console.error("Error al eliminar el estudiante", errorData);
+            }
+        } catch (error) {
+            console.error("Error en la solicitud de eliminación", error);
         }
-    } catch (error) {
-        console.error("Error en la solicitud de eliminación", error);
     }
-}
 </script>
 
 <form on:submit|preventDefault={handleSubmit}>
     <h1>Eliminar registro del Estudiante</h1>
-    <label for="register">Matrícula</label>
-    <input type="text" name="register" bind:value={register} required />
+    <label for="register_p">Matrícula</label>
+    <input
+        type="text"
+        name="register"
+        id="register_p"
+        bind:value={register}
+        required
+    />
     <div id="btns">
         <button type="submit" id="register">Eliminar</button>
     </div>
@@ -94,5 +104,5 @@
     }
     #btns button:hover {
         background-color: #ca0313;
-    } 
+    }
 </style>
