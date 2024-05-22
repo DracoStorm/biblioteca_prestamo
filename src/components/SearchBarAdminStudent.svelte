@@ -7,7 +7,7 @@
     import SearchBox from "./SearchBox.svelte";
     import StudentItem from "./StudentItem.svelte";
 
-    export let cokies: string;
+    export let cookies: string;
     let students: Student[] | undefined = undefined;
     let itemSearch: string;
     current_filter.set("Matrícula");
@@ -18,7 +18,7 @@
                 [filter]: itemSearch,
             },
             ADMIN_STUDENT,
-            cokies,
+            cookies,
         );
         if (!resp.ok) {
             if (resp.status == 404) {

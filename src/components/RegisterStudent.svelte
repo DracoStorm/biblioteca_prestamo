@@ -1,7 +1,7 @@
 <script lang="ts">
     import { PUT, ADMIN_STUDENT } from "../API/API.json";
 
-    export let cokies: string;
+    export let cookies: string;
 
     /*console.log("h");*/
     let register: number;
@@ -21,7 +21,7 @@
             },
 
             ADMIN_STUDENT,
-            cokies,
+            cookies,
         );
     }
 </script>

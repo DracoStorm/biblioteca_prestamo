@@ -1,6 +1,6 @@
 <script lang="ts">
     import { DELETE, ADMIN_STUDENT } from "../API/API.json";
-    export let cokies: string;
+    export let cookies: string;
     let register: string;
 
     async function handleSubmit() {
@@ -9,7 +9,7 @@
             const promise = await DELETE(
                 { register: register },
                 ADMIN_STUDENT,
-                cokies,
+                cookies,
             );
             if (promise.ok) {
                 console.log("Estudiante eliminado exitosamente");

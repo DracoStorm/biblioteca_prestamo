@@ -7,7 +7,7 @@
     import SearchBox from "./SearchBox.svelte";
     import BookItem from "./BookItem.svelte";
 
-    export let cokies: string;
+    export let cookies: string;
     let books: Book[] | undefined = undefined;
     let itemSearch: string;
     current_filter.set("Título");
@@ -18,7 +18,7 @@
                 [filter]: itemSearch,
             },
             STUDENT_BOOK,
-            cokies,
+            cookies,
         );
         if (!resp.ok) {
             if (resp.status == 404) {

@@ -9,7 +9,7 @@
         ADMIN_BOOK,
     } from "../API/API.json";
 
-    export let cokies: string;
+    export let cookies: string;
     let id: string;
     let title: string;
     let author: string;
@@ -22,7 +22,7 @@
     async function fetchOptions() {
         if (id) {
             try {
-                const book_p = await GET(`${ADMIN_BOOK}${id}/`, cokies);
+                const book_p = await GET(`${ADMIN_BOOK}${id}/`, cookies);
                 const book = await book_p.json();
                 title = title;
                 author = author;
@@ -56,7 +56,7 @@
                     category: category,
                 },
                 ADMIN_BOOK,
-                cokies,
+                cookies,
             );
             if (promise.ok) {
                 console.log("Libro actualizado exitosamente");

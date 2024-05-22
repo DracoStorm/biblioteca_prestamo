@@ -1,14 +1,14 @@
 <script lang="ts">
     import { DELETE, ADMIN_BOOK } from "../API/API.json";
 
-    export let cokies: string;
+    export let cookies: string;
 
     let id: string;
 
     async function handleSubmit() {
         console.log(`Eliminando libro con ID: ${id}`);
         try {
-            const promise = await DELETE({ id: id }, ADMIN_BOOK, cokies);
+            const promise = await DELETE({ id: id }, ADMIN_BOOK, cookies);
             if (promise.ok) {
                 console.log("Libro eliminado exitosamente");
             } else {

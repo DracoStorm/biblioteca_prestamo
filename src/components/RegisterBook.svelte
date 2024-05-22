@@ -3,7 +3,7 @@
     import type { SimpleKey } from "../types/api";
     import { GET, CATEGORY, EDITORIAL, PUT, ADMIN_BOOK } from "../API/API.json";
 
-    export let cokies: string;
+    export let cookies: string;
 
     let title: string;
     let author: string;
@@ -35,7 +35,7 @@
                 category: category,
             },
             ADMIN_BOOK,
-            cokies,
+            cookies,
         );
     }
 </script>

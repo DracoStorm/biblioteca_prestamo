@@ -6,10 +6,11 @@ import DeleteStudent from "../../../components/DeleteStudent.svelte";
 const token = Astro.cookies.get("token");
 const request = Astro.request;
 if (!token) {
-    return Astro.redirect('/');
+    return Astro.redirect("/");
 }
 ---
+
 <Layout title="Eliminar Estudiante">
     <NavBarAdmin />
-    <DeleteStudent client:load cokies={token.value} />
+    <DeleteStudent client:load cookies={token.value} />
 </Layout>

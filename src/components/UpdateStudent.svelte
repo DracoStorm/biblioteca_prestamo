@@ -1,7 +1,7 @@
 <script lang="ts">
     import { ADMIN_STUDENT, GET, PATCH } from "../API/API.json";
 
-    export let cokies: string;
+    export let cookies: string;
     let register: number;
     let first_name: string;
     let last_name: string;
@@ -22,7 +22,7 @@
                     e_mail: e_mail,
                 },
                 ADMIN_STUDENT,
-                cokies,
+                cookies,
             );
             if (response.ok) {
                 console.log("Estudiante actualizado exitosamente");

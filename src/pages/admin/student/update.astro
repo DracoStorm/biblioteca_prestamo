@@ -1,17 +1,16 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
-import NavBarAdmin from '../../../components/NavBarAdmin.astro';
-import ActualizarEstudiante from '../../../components/UpdateStudent.svelte';
+import Layout from "../../../layouts/Layout.astro";
+import NavBarAdmin from "../../../components/NavBarAdmin.astro";
+import ActualizarEstudiante from "../../../components/UpdateStudent.svelte";
 
-const token = Astro.cookies.get('token');
+const token = Astro.cookies.get("token");
 const request = Astro.request;
 if (!token) {
-    return Astro.redirect('/');
+    return Astro.redirect("/");
 }
 ---
 
 <Layout title="Actualizar Estudiante">
     <NavBarAdmin />
-    <ActualizarEstudiante client:load cokies={token.value} />
+    <ActualizarEstudiante client:load cookies={token.value} />
 </Layout>
-

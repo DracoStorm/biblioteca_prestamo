@@ -1,15 +1,14 @@
 <script lang="ts">
+    import { POST, STUDENT_LOAN } from "../API/API.json";
+    export let cookies: string;
     let id: number;
-
-    function handleSubmit(event: Event) {
-        event.preventDefault();
-    }
+    function handleSubmit() {}
 </script>
 
-<form on:submit={handleSubmit}>
+<form on:submit|preventDefault={handleSubmit}>
     <h1>Registrar Préstamo</h1>
     <label for="id">Book ID</label>
-    <input type="number" name="id" bind:value={id} required />
+    <input name="id" bind:value={id} required />
 
     <div id="btns">
         <button type="submit" id="register">Registrar</button>

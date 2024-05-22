@@ -1,4 +1,4 @@
-const API = "http://127.0.0.1:8000/API/";
+const API = "http://localhost:8000/API/";
 
 export const SESION = API + "u/sesion/";
 export const CATEGORY = API + "u/category/";

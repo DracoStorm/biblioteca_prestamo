@@ -1,18 +1,17 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
-import NavBarAdmin from '../../../components/NavBarAdmin.astro';
-import RegisterStudent from '../../../components/RegisterStudent.svelte';
+import Layout from "../../../layouts/Layout.astro";
+import NavBarAdmin from "../../../components/NavBarAdmin.astro";
+import RegisterStudent from "../../../components/RegisterStudent.svelte";
 
 // Función para manejar la redirección si no está autenticado
-const token = Astro.cookies.get('token');
+const token = Astro.cookies.get("token");
 
 if (!token) {
-    return Astro.redirect('/');
+    return Astro.redirect("/");
 }
 ---
 
 <Layout title="Registrar Estudiante">
     <NavBarAdmin />
-    <RegisterStudent client:load cokies={token.value} />
+    <RegisterStudent client:load cookies={token.value} />
 </Layout>
-
