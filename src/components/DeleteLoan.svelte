@@ -1,20 +1,27 @@
 <script lang="ts">
-    import { createEventDispatcher } from "svelte";
+    import { DELETE, ADMIN_STUDENT_LOAN } from "../API/API.json";
 
-    export let id: number;
+    export let cookies: string;
+    let id: number;
+    let register: number;
 
-    const dispatch = createEventDispatcher();
-
-    function handleSubmit(event: Event) {
-        event.preventDefault();
-        const formData = new FormData(event.target as HTMLFormElement);
-        dispatch("submit", formData);
+    async function handleSubmit() {
+        const request = await DELETE(
+            { id_loan: id, register: register },
+            ADMIN_STUDENT_LOAN,
+            cookies,
+        );
+        if (!(request.status == 204)) {
+            alert("Error no se ha podido elimnar");
+        }
     }
 </script>
 
-<form on:submit={handleSubmit}>
+<form on:submit|preventDefault={handleSubmit}>
     <h1>Eliminar Préstamo</h1>
-    <label for="id">ID</label>
+    <label for="register">Matricula</label>
+    <input name="register" id="register" bind:value={register} required />
+    <label for="id">ID Prestamo</label>
     <input type="text" name="id" bind:value={id} required />
     <div id="btns">
         <button type="submit" id="eliminar">Eliminar</button>
@@ -55,13 +62,13 @@
         box-shadow: 0.5rem 0.5rem 2rem #0004;
     }
     #eliminar {
-        background-color: #ff2234;
+        background-color: #ae232f;
         width: 9rem;
         color: #fefefe;
         font-size: 0.9rem;
         font-weight: bold;
         padding: 0.2rem 1rem;
-        box-shadow: 0.2rem 0.2rem 1rem #464444;
+        box-shadow: 0.2rem 0.2rem 1rem #0004;
         margin: auto;
         border-radius: 0.8rem;
         text-align: center;
@@ -83,6 +90,6 @@
         margin-top: 1rem;
     }
     #btns button:hover {
-        background-color: #ca0313;
+        background-color: #d71324;
     }
 </style>

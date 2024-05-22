@@ -4,45 +4,13 @@ import NavAdmin from "../../../components/NavBarAdmin.astro";
 import type { Loan } from "../../../types/api";
 import DeleteLoan from "../../../components/DeleteLoan.svelte";
 
-
-// Variables para manejar datos de estudiantes
-let RegisterL: Loan | undefined;
-let creation_error: string | undefined;
-/*
-// Checa si existe la sesión
 const token = Astro.cookies.get("token");
-const request = Astro.request;
-
-if (token) {
-    if (request.method === "POST") {
-        try {
-            const formData = await Astro.request.formData();
-            const register = formData.get("register")?.toString();
-            
-            if (register) {
-                await DELETE({ register: parseInt(register) }, ADMIN_STUDENT, token.value);
-            }
-        } catch (e) {
-            creation_error = "No se pudo crear el estudiante";
-        }
-    } else {
-        try {
-            // Si la sesión es válida
-            RegisterS = (await GET(ADMIN_STUDENT, token.value)) as Student;
-        } catch (e) {
-            // Si no, regresa al login
-            console.log(e);
-            return Astro.redirect("/");
-        }
-    }
-} else {
+if (!token) {
     return Astro.redirect("/");
-}*/
+}
 ---
 
 <Layout title="modificar prestamo">
     <NavAdmin />
-    <DeleteLoan/>
-    {creation_error && <p style="color: red;">{creation_error}</p>}
+    <DeleteLoan cookies={token.value} client:load />
 </Layout>
-

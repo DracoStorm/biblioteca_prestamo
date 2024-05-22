@@ -72,7 +72,7 @@
         box-shadow: 0.5rem 0.5rem 2rem #0004;
     }
     #register {
-        background-color: #ff2234;
+        background-color: #ae232f;
         width: 9rem;
         color: #fefefe;
         font-size: 0.9rem;
@@ -100,6 +100,6 @@
         margin-top: 1rem;
     }
     #btns button:hover {
-        background-color: #ca0313;
+        background-color: #d71324;
     }
 </style>
